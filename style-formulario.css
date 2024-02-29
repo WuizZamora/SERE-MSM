@@ -1,0 +1,20 @@
+/* CAMPOS OCULTOS DINÁMICOS*/
+#camposPersonaMoral{
+    display: none;
+}
+
+#campoDetalle{
+    display: none;
+}
+
+#camposPersonaFisicaActEmp{
+    display: none;
+}
+
+#camposPersonaFisica{
+    display: none;
+}
+
+#campoFechaValidacion{
+    display: none;
+}

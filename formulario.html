@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="esp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLICITUD | ALTA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style-formulario.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <div class="container">
+        <h2>FORMATO DE ENTREGA DE CUENTA PARA COBRANZA EXTRA JUDICIAL</h2>
+    </div>
+
+    <!-- INFORMACIÓN GENERAL DE LA CUENTA -->
+
+    <div class="container">
+        <h2> Información general de la cuenta</h2>
+        <hr>
+        <form action="#" method="post">
+            <div class="row mb-3">
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label"># DE CLIENTE PADRE: </label>
+                        <input type="text" class="form-control" name="NoClientePadre" id="NoClientePadre" maxlength="10"
+                            required>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label"># DE CLIENTE HIJO: </label>
+                        <input type="text" class="form-control" name="NoClienteHijo" id="NoClienteHijo" maxlength="10"
+                            required>
+                    </div>
+                </div>
+
+                <div class="col-md-3 ">
+                    <div class="mb-3">
+                        <label class="form-label">TIPO DE CASO (C)</label>
+                        <select class="form-select" name="TipoCaso" id="TipoCaso" required>
+                            <option selected disabled value=""></option>
+                            <option value="ExtraJudicial">JUDICIAL</option>
+                            <option value="Judicial">EXTRAJUDICIAL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">FECHA DE ASIGNACIÓN: </label>
+                        <input type="date" class="form-control" name="FechaAsignacion" id="FechaAsignacion" required>
+                    </div>
+                </div>
+            </div>
+
+                <!-- INFORMACIÓN DEL DEUDOR Y CONTACTO PRINCIPAL -->
+            <h2>INFORMACIÓN DEL DEUDOR Y CONTACTO PRINCIPAL</h2>
+            <hr>
+            <div class="row mb-3 align-items-end ">
+                <!-- RÉGIMEN DEL DEUDOR -->
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">RÉGIMEN DEL DEUDOR:</label>
+                        <select class="form-select" name="RegimenDeudor" id="RegimenDeudor"
+                            onchange="mostrarCamposSegunRegimen()" required>
+                            <option selected disabled value=""></option>
+                            <option value="PersonaMoral">Persona Moral</option>
+                            <option value="PersonaFisica">Persona Física</option>
+                            <option value="PersonaFisicaActEmp">Persona Física con Actividad Empresarial</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- PERSONA MORAL  -->
+                <div class="row mb-3 align-items-end" id="camposPersonaMoral">
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">RAZÓN SOCIAL (PM)</label>
+                            <input type="text" class="form-control" name="RazonSocial" id="RazonSocial" maxlength="10"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">R.F.C</label>
+                            <input type="text" class="form-control" name="Rfc" id="Rfc" maxlength="10" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DIRECCIÓN COMERCIAL:</label>
+                            <input type="text" class="form-control" name="DireccionComercial" id="DireccionComercial"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">PUESTO / CARGO:</label>
+                            <input type="text" class="form-control" name="Puesto-Cargo" id="Puesto-Cargo" maxlength="10"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">¿CUENTA CON ALGÚN PODER NOTARIAL?</label>
+                            <select class="form-select" name="PoderNotarial" id="PoderNotarial"
+                                onchange="mostrarCampoDetalle()" required>
+                                <option selected disabled value=""></option>
+                                <option value="Si">SI</option>
+                                <option value="No">NO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3" id="campoDetalle">
+                        <div class="mb-3">
+                            <label class="form-label">¿Cuál?</label>
+                            <input type="text" class="form-control" name="PoderNotarialDetalle"
+                                id="PoderNotarialDetalle" maxlength="10" required>
+                        </div>
+                    </div>
+
+                    <script>
+                        function mostrarCampoDetalle() {
+                            var seleccion = document.getElementById("PoderNotarial").value;
+                            var campoAdicional = document.getElementById("campoDetalle");
+
+                            if (seleccion === "Si") {
+                                campoAdicional.style.display = "flex";
+                            } else {
+                                campoAdicional.style.display = "none";
+                            }
+                        }
+                    </script>
+
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DOMICILIO FISCAL:</label>
+                            <input type="text" class="form-control" name="DomicilioFiscal" id="DomicilioFiscal"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- PERSONA FISICA CON ACTIVIDAD EMPRESARIAL -->
+                <div class="row mb-3" id="camposPersonaFisicaActEmp">
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DOMICILIO FISCAL:</label>
+                            <input type="text" class="form-control" name="DomicilioFiscal" id="DomicilioFiscal"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DOMICILIO PERSONAL:</label>
+                            <input type="text" class="form-control" name="DomicilioPersonal" id="DomicilioPersonal"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DOMICILIO LABORAL:</label>
+                            <input type="text" class="form-control" name="DomicilioLaboral" id="DomicilioLaboral"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PERSONA FISICA -->
+                <div class="row mb-3" id="camposPersonaFisica">
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DOMICILIO PERSONAL:</label>
+                            <input type="text" class="form-control" name="DomicilioPersonal" id="DomicilioPersonal"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DOMICILIO LABORAL:</label>
+                            <input type="text" class="form-control" name="DomicilioLaboral" id="DomicilioLaboral"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+                    function mostrarCamposSegunRegimen() {
+                        var regimen = document.getElementById("RegimenDeudor").value;
+
+                        var camposPersonaMoral = document.getElementById("camposPersonaMoral");
+                        var camposPersonaFisica = document.getElementById("camposPersonaFisica");
+                        var camposPersonaFisActEmp = document.getElementById("camposPersonaFisicaActEmp");
+
+                        if (regimen === "PersonaMoral") {
+                            camposPersonaMoral.style.display = "flex";
+                            camposPersonaFisica.style.display = "none";
+                            camposPersonaFisActEmp.style.display = "none"
+                        } else if (regimen === "PersonaFisica") {
+                            camposPersonaMoral.style.display = "none";
+                            camposPersonaFisica.style.display = "flex";
+                            camposPersonaFisActEmp.style.display = "none"
+                        } else if (regimen === "PersonaFisicaActEmp") {
+                            camposPersonaMoral.style.display = "none";
+                            camposPersonaFisica.style.display = "none";
+                            camposPersonaFisActEmp.style.display = "flex"
+                        }
+                    }
+                </script>
+
+                <!-- CAMPOS COMUNES DE TODOS LOS REGIMENES -->
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">NOMBRE DEL CONTACTO PRINCIPAL</label>
+                        <input type="text" class="form-control" name="NombreContactoPrincipal"
+                            id="NombreContactoPrincipal" maxlength="10" required>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">DOMICILIO DE ENTREGA:</label>
+                        <input type="text" class="form-control" name="DomicilioEntrega" id="DomicilioEntrega"
+                            maxlength="10" required>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">DOMICILIOS ALTERNATIVOS:</label>
+                        <input type="text" class="form-control" name="DomiciliosAlternativos"
+                            id="DomiciliosAlternativos" maxlength="10" required>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">¿VÍA PRINCIPAL DE CONTACTO?:</label>
+                        <input type="text" class="form-control" name="ViaContacto" id="ViaContacto" maxlength="10"
+                            placeholder="Correo, teléfono, visita domiciliaria " required>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">EN EL PROCESO DE OTORGAMIENTO DE CRÉDITO, ¿EL DOMICILIO DEL CLIENTE
+                            FUE CONFIRMADO FÍSICAMENTE?:</label>
+                        <select class="form-select" name="DomicilioConfirmado" id="DomicilioConfirmado"
+                            onchange="mostrarCampoFechaValidacion()" required>
+                            <option selected disabled value=""></option>
+                            <option value="Si">SI</option>
+                            <option value="No">NO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3" id="campoFechaValidacion">
+                    <div class="mb-3">
+                        <label class="form-label">FECHA DE VALIDACIÓN: </label>
+                        <input type="date" class="form-control" name="FechaValidacion" id="FechaValidacion" required>
+                    </div>
+                </div>
+                <script>
+                    function mostrarCampoFechaValidacion() {
+                        var DomicilioVerificado = document.getElementById("DomicilioConfirmado").value;
+                        var campoFecha = document.getElementById("campoFechaValidacion");
+
+                        if (DomicilioVerificado === "Si") {
+                            campoFecha.style.display = "flex";
+                        } else {
+                            campoFecha.style.display = "none";
+                        }
+                    }
+                </script>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">NÚMERO DE CELULAR:</label>
+                        <input type="text" class="form-control" name="Celular" id="Celular"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="10"
+                            onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                            pattern="[0-9]*"
+                            required
+                            >
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">TELÉFONO FIJO #1:</label>
+                        <input type="text" class="form-control" name="TelefonoFijoUno" id="TelefonoFijoUno"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="10"
+                            onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                            pattern="[0-9]*"
+                            required
+                            >
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">TELÉFONO FIJO #2:</label>
+                        <input type="text" class="form-control" name="TelefonoFijoDos" id="TelefonoFijoDos"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="10"
+                            onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                            pattern="[0-9]*"
+                            required
+                            >
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">CORREO ELECTRÓNICO:</label>
+                        <input type="email" class="form-control" name="Email" id="Email"
+                            oninput="validarCorreoElectronico()" required>
+                        <span id="resultado" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <script>
+                    function validarCorreoElectronico() {
+                        var email = document.getElementById("Email").value;
+                        var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                        let resultado = document.getElementById("resultado");
+                        if (regex.test(email)) {
+                            document.getElementById("Email").classList.remove("invalid");
+                            resultado.textContent = " ";
+                        } else {
+                            document.getElementById("Email").classList.add("invalid");
+                            resultado.textContent = "El EMAIL ingresado no es válido. Verifica el formato.";
+                            resultado.classList.add("text-danger");
+                        }
+                    }
+                </script>
+            </div>
+
+            <h2>CONTACTOS</h2>
+            <hr>
+            <div class="row mb-3">
+                <h4>DEL CONTACTO:</h4>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">NOMBRE:</label>
+                        <input type="text" class="form-control" name="NombreContacto" id="NombreContacto" required>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">DIRECCIÓN:</label>
+                        <input type="text" class="form-control" name="DireccionContacto" id="DireccionContacto" maxlength="10" required>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">TELÉFONO FIJO:</label>
+                        <input type="text" class="form-control" name="TelefonoContacto" id="TelefonoContacto" 
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="10"
+                            onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                            pattern="[0-9]*"
+                            required
+                            >
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">NÚMERO DE CELULAR:</label>
+                        <input type="text" class="form-control" name="CelularContacto" id="CelularContacto" 
+                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        maxlength="10"
+                        onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                        pattern="[0-9]*"
+                        required
+                        >
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">PUESTO:</label>
+                        <input type="text" class="form-control" name="PuestoContacto" id="PuestoContacto" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">CORREO ELECTRÓNICO PRINCIPAL:</label>
+                        <input type="email" class="form-control" name="EmailContacto" id="EmailContacto"
+                            oninput="validarCorreoElectronicoContacto(this)" required>
+                        <span id="resultadoContacto" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">CORREO ELECTRÓNICO ADICIONAL:</label>
+                        <input type="email" class="form-control" name="EmailContactoAdicional" id="EmailContactoAdicional"
+                            oninput="validarCorreoElectronicoContacto(this)" required>
+                        <span id="resultadoContactoAdicional" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <script>
+                    function validarCorreoElectronicoContacto(inputField) {
+                        var email = inputField.value;
+                        var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                        let resultado = inputField.id === "EmailContacto" ? document.getElementById("resultadoContacto") : document.getElementById("resultadoContactoAdicional");
+                        if (regex.test(email)) {
+                            inputField.classList.remove("invalid");
+                            resultado.textContent = " ";
+                        } else {
+                            inputField.classList.add("invalid");
+                            resultado.textContent = "El EMAIL ingresado no es válido. Verifica el formato.";
+                            resultado.classList.add("text-danger");
+                        }
+                    }
+                </script>
+
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">OBSERVACIONES ADICIONALES:</label>
+                        <!-- <input type="text" class="form-control" name="ObservacionesContacto" id="ObservacionesContacto" maxlength="10"> -->
+                        <textarea name="ObservacionesContacto" id="ObservacionesContacto" rows="5" class="form-control" maxlength="200"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 offset-md-10 justify-content-end">
+                    <button id="Registrar" type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                    <!-- <input type="submit" id="Registrar" class="btn bnt btn-lg" value="Registrar">  -->
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
