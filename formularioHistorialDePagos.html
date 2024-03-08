@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HISTORIAL DE PAGOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style-formulario.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="table-responsive">
+            <table class="table table-hover text-center" id="dataTable">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">FECHA DE LA TRANSACCIÓN</th>
+                        <th scope="col">NO. DE FACTURA / RECIBO</th>
+                        <th scope="col">MONTO PAGADO</th>
+                        <th scope="col">ESTADO DEL PAGO REALIZADO CON:</th>
+                        <th scope="col">OBSERVACIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><input type="date" class="form-control text-center" id="FechaTransaccion1" required></td>
+                        <td><input type="number" class="form-control text-center montoInput" id="NumeroFactura1"
+                                required></td>
+                        <td><input type="number" class="form-control text-center montoInput" id="MontoPagado1" required>
+                        </td>
+                        <td>
+                            <select class="form-select" name="EstadoDelPago" id="EstadoDelPago" required>
+                                <option selected disabled value=""></option>
+                                <option value="PagoRealizadoATiempo">Tiempo</option>
+                                <option value="PagoRealizadoConRetraso">Retraso</option>
+                            </select>
+                        </td>
+                        <td>
+                            <textarea name="ObservacionesContacto" id="ObservacionesContacto" rows="3"
+                                class="form-control" maxlength="50" required></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-primary" onclick="agregarFila()">+</button>
+    </div>
+
+    <script>
+        function agregarFila() {
+            var table = document.getElementById("dataTable");
+            var rowCount = table.rows.length;
+
+            var row = table.insertRow(rowCount);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+
+            cell1.innerHTML = rowCount;
+            cell2.innerHTML = '<input type="date" class="form-control text-center" id="FechaTransaccion' + rowCount + '" required>';
+            cell3.innerHTML = '<input type="number" class="form-control text-center montoInput" id="NumeroFactura' + rowCount + '" required>';
+            cell4.innerHTML = '<input type="number" class="form-control text-center montoInput" id="MontoPagado' + rowCount + '" required>';
+            cell5.innerHTML = '<select class="form-select" name="EstadoDelPago' + rowCount + '" required><option selected disabled value=""></option><option value="PagoRealizadoATiempo">Tiempo</option><option value="PagoRealizadoConRetraso">Retraso</option></select>';
+            cell6.innerHTML = '<textarea name="ObservacionesContacto' + rowCount + '" rows="3" class="form-control" maxlength="50" required></textarea>';
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

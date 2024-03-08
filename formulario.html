@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="esp">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <title>SOLICITUD | ALTA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="style-formulario.css">
+    <link rel="stylesheet" type="text/css" href="style-formulario.css">
 </head>
 
 <body>
@@ -15,16 +15,17 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <div class="container">
+    <div class="container text-center">
+        <h1>MONDAINAI SERE | SISTEMA EXPERTO EN RELACIONES EMPRESARIALES</h1>
+        <br><br>
         <h2>FORMATO DE ENTREGA DE CUENTA PARA COBRANZA EXTRA JUDICIAL</h2>
     </div>
 
     <!-- INFORMACIÓN GENERAL DE LA CUENTA -->
-
     <div class="container">
         <h2> Información general de la cuenta</h2>
         <hr>
-        <form action="#" method="post">
+        <form action="#" method="post" autocomplete="off">
             <div class="row mb-3">
 
                 <div class="col-md-3">
@@ -48,8 +49,8 @@
                         <label class="form-label">TIPO DE CASO (C)</label>
                         <select class="form-select" name="TipoCaso" id="TipoCaso" required>
                             <option selected disabled value=""></option>
-                            <option value="ExtraJudicial">JUDICIAL</option>
-                            <option value="Judicial">EXTRAJUDICIAL</option>
+                            <option value="ExtraJudicial">EXTRAJUDICIAL</option>
+                            <option value="Judicial">JUDICIAL</option>
                         </select>
                     </div>
                 </div>
@@ -62,14 +63,14 @@
                 </div>
             </div>
 
-                <!-- INFORMACIÓN DEL DEUDOR Y CONTACTO PRINCIPAL -->
+            <!-- INFORMACIÓN DEL DEUDOR Y CONTACTO PRINCIPAL -->
             <h2>INFORMACIÓN DEL DEUDOR Y CONTACTO PRINCIPAL</h2>
             <hr>
-            <div class="row mb-3 align-items-end ">
+            <div class="row mb-3 align-items-end">
                 <!-- RÉGIMEN DEL DEUDOR -->
-                <div class="col-md-3">
+                <div>
                     <div class="mb-3">
-                        <label class="form-label">RÉGIMEN DEL DEUDOR:</label>
+                        <label class="form-label">TIPO DE DEUDOR:</label>
                         <select class="form-select" name="RegimenDeudor" id="RegimenDeudor"
                             onchange="mostrarCamposSegunRegimen()" required>
                             <option selected disabled value=""></option>
@@ -79,12 +80,12 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <!-- PERSONA MORAL  -->
                 <div class="row mb-3 align-items-end" id="camposPersonaMoral">
                     <div class="col-md-3">
                         <div class="mb-3">
-                            <label class="form-label">RAZÓN SOCIAL (PM)</label>
+                            <label class="form-label">RAZÓN SOCIAL</label>
                             <input type="text" class="form-control" name="RazonSocial" id="RazonSocial" maxlength="10"
                                 required>
                         </div>
@@ -92,25 +93,9 @@
 
                     <div class="col-md-3">
                         <div class="mb-3">
-                            <label class="form-label">R.F.C</label>
-                            <input type="text" class="form-control" name="Rfc" id="Rfc" maxlength="10" required>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="mb-3">
                             <label class="form-label">DIRECCIÓN COMERCIAL:</label>
                             <input type="text" class="form-control" name="DireccionComercial" id="DireccionComercial"
-                                maxlength="10" required>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-3">
-                        <div class="mb-3">
-                            <label class="form-label">PUESTO / CARGO:</label>
-                            <input type="text" class="form-control" name="Puesto-Cargo" id="Puesto-Cargo" maxlength="10"
-                                required>
+                                maxlength="10">
                         </div>
                     </div>
 
@@ -151,7 +136,7 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO FISCAL:</label>
                             <input type="text" class="form-control" name="DomicilioFiscal" id="DomicilioFiscal"
-                                maxlength="10" required>
+                                maxlength="10">
                         </div>
                     </div>
 
@@ -163,7 +148,7 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO FISCAL:</label>
                             <input type="text" class="form-control" name="DomicilioFiscal" id="DomicilioFiscal"
-                                maxlength="10" required>
+                                maxlength="10">
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -178,7 +163,7 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO LABORAL:</label>
                             <input type="text" class="form-control" name="DomicilioLaboral" id="DomicilioLaboral"
-                                maxlength="10" required>
+                                maxlength="10">
                         </div>
                     </div>
                 </div>
@@ -197,7 +182,7 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO LABORAL:</label>
                             <input type="text" class="form-control" name="DomicilioLaboral" id="DomicilioLaboral"
-                                maxlength="10" required>
+                                maxlength="10">
                         </div>
                     </div>
                 </div>
@@ -230,17 +215,38 @@
                 <!-- CAMPOS COMUNES DE TODOS LOS REGIMENES -->
                 <div class="col-md-3">
                     <div class="mb-3">
-                        <label class="form-label">NOMBRE DEL CONTACTO PRINCIPAL</label>
-                        <input type="text" class="form-control" name="NombreContactoPrincipal"
-                            id="NombreContactoPrincipal" maxlength="10" required>
+                        <label class="form-label">R.F.C: </label>
+                        <input type="text" class="form-control" name="Rfc" id="Rfc" maxlength="10" required>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="mb-3">
-                        <label class="form-label">DOMICILIO DE ENTREGA:</label>
+                        <label class="form-label">CURP: </label>
+                        <input type="text" class="form-control" name="Curp" id="Curp" maxlength="10" required>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">NOMBRE DEL CONTACTO PRINCIPAL</label>
+                        <input type="text" class="form-control" name="NombreContactoPrincipal"
+                            id="NombreContactoPrincipal" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">PUESTO / CARGO DEL CONTACTO PRINCIPAL:</label>
+                        <input type="text" class="form-control" name="Puesto-Cargo" id="Puesto-Cargo" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">DOMICILIO DE ENTREGA / SERVICIO:</label>
                         <input type="text" class="form-control" name="DomicilioEntrega" id="DomicilioEntrega"
-                            maxlength="10" required>
+                            maxlength="10">
                     </div>
                 </div>
 
@@ -248,7 +254,7 @@
                     <div class="mb-3">
                         <label class="form-label">DOMICILIOS ALTERNATIVOS:</label>
                         <input type="text" class="form-control" name="DomiciliosAlternativos"
-                            id="DomiciliosAlternativos" maxlength="10" required>
+                            id="DomiciliosAlternativos" maxlength="10">
                     </div>
                 </div>
 
@@ -299,9 +305,7 @@
                             maxlength="10"
                             onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
                             onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                            pattern="[0-9]*"
-                            required
-                            >
+                            pattern="[0-9]*" required>
                     </div>
                 </div>
 
@@ -313,9 +317,7 @@
                             maxlength="10"
                             onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
                             onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                            pattern="[0-9]*"
-                            required
-                            >
+                            pattern="[0-9]*" required>
                     </div>
                 </div>
 
@@ -327,9 +329,7 @@
                             maxlength="10"
                             onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
                             onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                            pattern="[0-9]*"
-                            required
-                            >
+                            pattern="[0-9]*">
                     </div>
                 </div>
 
@@ -338,7 +338,7 @@
                     <div class="mb-3">
                         <label class="form-label">CORREO ELECTRÓNICO:</label>
                         <input type="email" class="form-control" name="Email" id="Email"
-                            oninput="validarCorreoElectronico()" required>
+                            oninput="validarCorreoElectronico()">
                         <span id="resultado" class="text-danger"></span>
                     </div>
                 </div>
@@ -360,102 +360,594 @@
                 </script>
             </div>
 
-            <h2>CONTACTOS</h2>
+            <h2 style="display: inline;">CONTACTOS</h2>
+            <h6 style="display: inline; margin-left: 0.5rem;"> (Máximo 3)</h6>
             <hr>
-            <div class="row mb-3">
-                <h4>DEL CONTACTO:</h4>
-                <div class="col-md-3">
-                    <div class="mb-3">
-                        <label class="form-label">NOMBRE:</label>
-                        <input type="text" class="form-control" name="NombreContacto" id="NombreContacto" required>
+            <div id="contactosContainer">
+                <div class="row mb-3 align-items-end" id="contactoContainer">
+                    <h4>DEL CONTACTO ADICIONAL:</h4>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">NOMBRE:</label>
+                            <input type="text" class="form-control" name="NombreContacto" id="NombreContacto" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3">
-                    <div class="mb-3">
-                        <label class="form-label">DIRECCIÓN:</label>
-                        <input type="text" class="form-control" name="DireccionContacto" id="DireccionContacto" maxlength="10" required>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DIRECCIÓN:</label>
+                            <input type="text" class="form-control" name="DireccionContacto" id="DireccionContacto"
+                                maxlength="10" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3">
-                    <div class="mb-3">
-                        <label class="form-label">TELÉFONO FIJO:</label>
-                        <input type="text" class="form-control" name="TelefonoContacto" id="TelefonoContacto" 
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            maxlength="10"
-                            onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
-                            onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                            pattern="[0-9]*"
-                            required
-                            >
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">TELÉFONO FIJO:</label>
+                            <input type="text" class="form-control" name="TelefonoContacto" id="TelefonoContacto"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                maxlength="10"
+                                onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                                pattern="[0-9]*" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3">
-                    <div class="mb-3">
-                        <label class="form-label">NÚMERO DE CELULAR:</label>
-                        <input type="text" class="form-control" name="CelularContacto" id="CelularContacto" 
-                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                        maxlength="10"
-                        onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
-                        onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                        pattern="[0-9]*"
-                        required
-                        >
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">NÚMERO DE CELULAR:</label>
+                            <input type="text" class="form-control" name="CelularContacto" id="CelularContacto"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                maxlength="10"
+                                onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                                pattern="[0-9]*" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3">
-                    <div class="mb-3">
-                        <label class="form-label">PUESTO:</label>
-                        <input type="text" class="form-control" name="PuestoContacto" id="PuestoContacto" maxlength="10">
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">PUESTO:</label>
+                            <input type="text" class="form-control" name="PuestoContacto" id="PuestoContacto"
+                                maxlength="10">
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3">
-                    <div class="mb-3">
-                        <label class="form-label">CORREO ELECTRÓNICO PRINCIPAL:</label>
-                        <input type="email" class="form-control" name="EmailContacto" id="EmailContacto"
-                            oninput="validarCorreoElectronicoContacto(this)" required>
-                        <span id="resultadoContacto" class="text-danger"></span>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">CORREO ELECTRÓNICO PRINCIPAL:</label>
+                            <input type="email" class="form-control" name="EmailContacto" id="EmailContacto"
+                                oninput="validarCorreoElectronicoContacto(this)" required>
+                            <span id="resultadoContacto" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">CORREO ELECTRÓNICO ADICIONAL:</label>
+                            <input type="email" class="form-control" name="EmailContactoAdicional"
+                                id="EmailContactoAdicional" oninput="validarCorreoElectronicoContacto(this)">
+                            <span id="resultadoContactoAdicional" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <script>
+                        function validarCorreoElectronicoContacto(inputField) {
+                            var email = inputField.value;
+                            var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                            let resultado = inputField.id === "EmailContacto" ? document.getElementById("resultadoContacto") : document.getElementById("resultadoContactoAdicional");
+                            if (regex.test(email)) {
+                                inputField.classList.remove("invalid");
+                                resultado.textContent = " ";
+                            } else {
+                                inputField.classList.add("invalid");
+                                resultado.textContent = "El EMAIL ingresado no es válido. Verifica el formato.";
+                                resultado.classList.add("text-danger");
+                            }
+                        }
+                    </script>
+
+                    <div>
+                        <div class="mb-3">
+                            <label class="form-label">OBSERVACIONES ADICIONALES:</label>
+                            <!-- <input type="text" class="form-control" name="ObservacionesContacto" id="ObservacionesContacto" maxlength="10"> -->
+                            <textarea name="ObservacionesContacto" id="ObservacionesContacto" rows="5"
+                                class="form-control" maxlength="200"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="mb-3">
-                        <label class="form-label">CORREO ELECTRÓNICO ADICIONAL:</label>
-                        <input type="email" class="form-control" name="EmailContactoAdicional" id="EmailContactoAdicional"
-                            oninput="validarCorreoElectronicoContacto(this)" required>
-                        <span id="resultadoContactoAdicional" class="text-danger"></span>
-                    </div>
-                </div>
-                
                 <script>
-                    function validarCorreoElectronicoContacto(inputField) {
-                        var email = inputField.value;
-                        var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-                        let resultado = inputField.id === "EmailContacto" ? document.getElementById("resultadoContacto") : document.getElementById("resultadoContactoAdicional");
-                        if (regex.test(email)) {
-                            inputField.classList.remove("invalid");
-                            resultado.textContent = " ";
-                        } else {
-                            inputField.classList.add("invalid");
-                            resultado.textContent = "El EMAIL ingresado no es válido. Verifica el formato.";
-                            resultado.classList.add("text-danger");
+                    var contadorContactos = 1; // Contador para identificadores únicos
+                    function agregarContacto() {
+                        // Verifica la cantidad máxima permitida de contactos (en este caso, 2 adicionales)
+                        if (contadorContactos <= 2) {
+                            // Clona el contenedor de contacto y asigna un nuevo ID único
+                            var nuevoContacto = document.getElementById('contactoContainer').cloneNode(true);
+                            nuevoContacto.id = 'contactoContainer' + contadorContactos++;
+
+                            // Actualiza el texto "DEL CONTACTO" con el número correspondiente
+                            var delContactoElement = nuevoContacto.querySelector('h4');
+                            delContactoElement.textContent = 'DEL CONTACTO ADICIONAL ' + contadorContactos + ':';
+
+                            // Modifica los IDs de los campos de entrada para reflejar el número de contacto
+                            var inputs = nuevoContacto.querySelectorAll('input[type="text"], input[type="email"]');
+                            inputs.forEach(function (input) {
+                                // Obtén el nombre del campo (ej. "NombreContacto")
+                                var fieldName = input.name;
+                                // Modifica el ID agregando el número de contacto (ej. "NombreContacto2")
+                                input.id = fieldName + contadorContactos;
+                                // Limpia el valor y la clase "invalid"
+                                input.value = '';
+                                input.classList.remove('invalid');
+                            });
+
+                            // Modifica el ID del campo de texto (textarea) para reflejar el número de contacto
+                            var textarea = nuevoContacto.querySelector('textarea');
+                            textarea.id = 'ObservacionesContacto' + contadorContactos;
+                            textarea.value = ''; // Limpia el valor del textarea
+
+                            // Añade el nuevo contacto al contenedor
+                            document.getElementById('contactosContainer').appendChild(nuevoContacto);
+                        }
+
+                        // Deshabilita el botón si se alcanza el límite de contactos
+                        if (contadorContactos > 2) {
+                            document.getElementById('btnAgregarContacto').disabled = true;
                         }
                     }
                 </script>
+            </div>
+            <div id="ContainerBotonAgregar">
+                <button type="button" onclick="agregarContacto()" class="btn btn-primary btn-lg"
+                    id="btnAgregarContacto">+</button>
+            </div>
+            <br>
 
-
-                <div class="col-md-3">
+            <h2>VARIABLES DE RIESGO</h2>
+            <hr>
+            <div class="row mb-3 align-items-end">
+                <div class="col-md-12">
                     <div class="mb-3">
-                        <label class="form-label">OBSERVACIONES ADICIONALES:</label>
-                        <!-- <input type="text" class="form-control" name="ObservacionesContacto" id="ObservacionesContacto" maxlength="10"> -->
-                        <textarea name="ObservacionesContacto" id="ObservacionesContacto" rows="5" class="form-control" maxlength="200"></textarea>
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapseOne">
+                                        MONTO DE LA DEUDA
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <table class="table table-hover text-center" id="dataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">CATEGORIAS DE PRODUCTOS Y/O SERVICIOS</th>
+                                                    <th scope="col">MONTO ($)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td><input type="text" class="form-control text-center"
+                                                            placeholder="ADEUDO 1" id="descripcionAdeudo1" required>
+                                                    </td>
+                                                    <td><input type="number" class="form-control text-center montoInput"
+                                                            placeholder="MONTO 1" id="adeudoMonto1"
+                                                            onkeyup="calcularTotal()" required></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <button type="button" class="btn btn-primary btn-lg" id="agregarBtn"
+                                            onclick="agregarFila()">+</button>
+
+                                        <div class="mt-3">
+                                            <label>Saldo Total Actualizado: $</label>
+                                            <span id="total"></span>
+                                        </div>
+                                        <script>
+                                            var contador = 1;
+
+                                            function agregarFila() {
+                                                if (contador < 10) {
+                                                    contador++;
+
+                                                    var nuevaFila = `
+                                                        <tr>
+                                                            <th scope="row">${contador}</th>
+                                                            <td><input type="text" class="form-control text-center" placeholder="ADEUDO ${contador}" id="descripcionAdeudo${contador}" required></td>
+                                                            <td><input type="number" class="form-control text-center montoInput" placeholder="MONTO ${contador}" id="adeudoMonto${contador}" onkeyup="calcularTotal()" required></td>
+                                                        </tr>
+                                                    `;
+
+                                                    // Agregar la nueva fila al final de la tabla
+                                                    $("#dataTable tbody").append(nuevaFila);
+
+                                                    // Calcular y mostrar el total
+                                                    calcularTotal();
+                                                } else {
+                                                    alert("Solo se permiten hasta 10 filas.");
+                                                    document.getElementById("agregarBtn").disabled = true;
+                                                }
+                                            }
+
+                                            function calcularTotal() {
+                                                var total = 0;
+
+                                                for (var i = 1; i <= contador; i++) {
+                                                    var monto = parseFloat($("#adeudoMonto" + i).val()) || 0;
+                                                    total += monto;
+                                                }
+
+                                                // Asegura que el total se muestre correctamente
+                                                $("#total").text(total.toFixed(2));
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseTwo">
+                                        EDAD DE LA DEUDA SS1
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <a href="EdoCuentaDelCliente.html"
+                                            onclick="window.open(this.href,'_blank','width=1000,height=400'); return false;">
+                                            LLENAR ESTADO DE CUENTA DEL CLIENTE</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseThree">
+                                        HISTORIAL DE PAGOS DEL DEUDOR SS2
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <a href="formularioHistorialDePagos.html"
+                                            onclick="window.open(this.href,'_blank','width=1000,height=400'); return false;">HISTORIAL
+                                            DE PAGOS DEL DEUDOR (LIQUIDEZ)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <div class="row mb-3 align-items-end">
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <label class="form-label">TIPO DE DEUDA (SOLVENCIA):</label>
+                            <select class="form-select" name="TipoDeuda" id="TipoDeuda"
+                                onchange="mostrarCampoTipoGarantia()" required>
+                                <option selected disabled value=""></option>
+                                <option value="Garantizada">Garantizada</option>
+                                <option value="NoGarantizada">No Garantizada</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3" id="CampoTipoGarantia" style="display: none;">
+                        <label class="form-label">¿TIPO DE GARANTÍA?</label>
+                        <select class="form-select" id="TipoGarantia" name="TipoGarantia" required>
+                            <option selected disabled value=""></option>
+                            <option value="Vehiculo">Vehiculo</option>
+                            <option value="Maquinaria-Equipamiento">Maquinaria y Equipamiento</option>
+                            <option value="CuentasPorCobrar">Cuentas por cobrar</option>
+                            <option value="Inversiones-Valores">Inversiones y valores</option>
+                            <option value="Inventario">Inventario</option>
+                            <option value="Joyeria-ObjetosValor">Joyeria y objetos de valor</option>
+                            <option value="DerechosAutor-Patentes">Derechos de autor y patentes</option>
+                            <option value="TituloDeCredito">Título de crédito</option>
+                            <option value="InmuebleTerreno">Inmueble ó terreno</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mb-3" id="campoOtros" style="display: none;">
+                        <label class="form-label">¿Cuál?</label>
+                        <input type="text" class="form-control" name="OtroTipoGarantia" id="OtroTipoGarantia">
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">DOCUMENTACIÓN LEGAL: </label>
+                        <input type="file" class="form-control" name="DocumentacionLegal" id="DocumentacionLegal"
+                            required multiple>
+                    </div>
+                </div>
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var tipoGarantiaSelect = document.getElementById("TipoGarantia");
+                    var campoOtros = document.getElementById("campoOtros");
+
+                    tipoGarantiaSelect.addEventListener("change", function () {
+                        if (tipoGarantiaSelect.value === "Otros") {
+                            campoOtros.style.display = "block";
+                        } else {
+                            campoOtros.style.display = "none";
+                        }
+                    });
+                });
+
+                function mostrarCampoTipoGarantia() {
+                    var seleccionTipoDeuda = document.getElementById("TipoDeuda").value;
+                    var campoAdicionalTipoGarantia = document.getElementById("CampoTipoGarantia");
+
+                    if (seleccionTipoDeuda === "Garantizada") {
+                        campoAdicionalTipoGarantia.style.display = "flex";
+                    } else {
+                        campoAdicionalTipoGarantia.style.display = "none";
+                    }
+                }
+            </script>
+
+            <div class="row mb-3 align-items-end">
+                <div class="col-md-6">
+                    <h6>DAÑOS RECLAMADOS JUDICIAL: ** </h6>
+                    <div class="mb-3">
+                        <label class="form-label">DESCRIBA LOS DAÑOS RECLAMOS:</label>
+                        <textarea name="DescripcionDañosReclamados" id="DescripcionDañosReclamados" rows="2"
+                            class="form-control" maxlength="50" required></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">ADJUNTA LA DOCUMENTACIÓN DE LOS DAÑOS:</label>
+                        <input type="file" class="form-control" name="DocumentacionDañosReclamados"
+                            id="DocumentacionDañosReclamados" multiple>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">DESCRIBA LA ACTITUD DEL DEUDOR:</label>
+                        <textarea name="DescripcionActitudDeudor" id="DescripcionActitudDeudor" rows="3"
+                            class="form-control" maxlength="50" required></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">ADJUNTA LA DOCUMENTACIÓN SOPORTE:</label>
+                        <input type="file" class="form-control" name="DocumentacionSoporteActitudDeudor"
+                            id="DocumentacionSoporteActitudDeudor" multiple>
+                    </div>
+                </div>
+
+                <div class="row mb-3 align-items-end">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">INFORMACIÓN CREDITICIA DEL CLIENTE:</label>
+                            <input type="file" class="form-control" name="BuroDelCliente" id="BuroDelCliente" required>
+                        </div>
+                    </div>
+                    <h6>CUENTAS BANCARIAS:</h6>
+                    <div class="row mb-3 align-items-end">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">BANCO:</label>
+                                <input type="text" class="form-control" name="Banco" id="Banco" maxlength="10" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">NÚMERO DE CUENTA:</label>
+                                <input type="number" class="form-control" name="NumeroDeCuenta" id="NumeroDeCuenta"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">¿TIENE ESTADO DE CUENTA?:</label>
+                                <select class="form-select" name="EstadoDeCuenta" id="EstadoDeCuenta"
+                                    onchange="mostrarCampoEstadoDeCuenta()" required>
+                                    <option selected disabled value=""></option>
+                                    <option value="Si">SI</option>
+                                    <option value="No">NO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" id="CampoEstadoDeCuenta" style="display: none;">
+                            <div class="mb-3">
+                                <label class="form-label">SUBE 1 ESTADO DE CUENTA:</label>
+                                <input type="file" class="form-control" name="EstadoDeCuentaFile"
+                                    id="EstadoDeCuentaFile" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        function mostrarCampoEstadoDeCuenta() {
+                            var seleccionEstadoDeCuenta = document.getElementById("EstadoDeCuenta").value;
+                            var campoAdicionalEstadoDeCuenta = document.getElementById("CampoEstadoDeCuenta");
+
+                            if (seleccionEstadoDeCuenta === "Si") {
+                                campoAdicionalEstadoDeCuenta.style.display = "flex";
+                            } else {
+                                campoAdicionalEstadoDeCuenta.style.display = "none";
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+            <h2> UNA BREVE DESCRIPCIÓN DEL CASO</h2>
+            <hr>
+            <div class="row mb-3 align-items-end">
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">HISTORIA DEL CASO: </label>
+                        <textarea name="HistoriaDelCaso" id="HistoriaDelCaso" rows="10" class="form-control"
+                            maxlength="450"
+                            placeholder="El Sr. Juan Pérez contrató los servicios de consultoría de XYZ S.A. el 1 de enero de 2023 para realizar un análisis de mercado y desarrollo de estrategias de marketing para su empresa."
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">ACCIONES TOMADAS HASTA EL MOMENTO: </label>
+                        <textarea name="AccionesTomadas" id="AccionesTomadas" rows="10" class="form-control"
+                            maxlength="450"
+                            placeholder="Se ha enviado un recordatorio por correo electrónico y se han dejado mensajes en el buzón de voz del Sr. Pérez."
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label">CIRCUNSTANCIAS ESPECIFICAS: </label>
+                        <textarea name="AccionesTomadas" id="AccionesTomadas" rows="10" class="form-control"
+                            maxlength="450"
+                            placeholder="¿Existen circunstancias especiales que puedan afectar la capacidad del deudor para pagar, como problemas financieros, disputas de facturación o cambios en la situación personal?"
+                            required></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <h2>DOCUMENTOS ENTREGADOS AL DESPACHO </h2>
+            <hr>
+            <div class="row mb-3 align-items-end">
+                <div class="container">
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center" id="dataTablePagares">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">FECHA DE VENCIMIENTO </th>
+                                    <th scope="col">FECHA DE PRESCRIPCIÓN</th>
+                                    <th scope="col">MONTO ($)</th>
+                                    <th scope="col">MONEDA</th>
+                                    <th scope="col">MONTO PESOS APROXIMADOS ($)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td><input type="date" class="form-control text-center" id="FechaVencimientoPagares"
+                                            required></td>
+                                    <td><input type="date" class="form-control text-center"
+                                            id="FechaPrescripcionPagares" required></td>
+                                    <td><input type="number" class="form-control text-center" id="MontoPagares"
+                                            required></td>
+                                    <td><input type="text" class="form-control text-center" id="Moneda" maxlength="10"
+                                            required>
+                                    </td>
+                                    <td><input type="number" class="form-control text-center" id="MontoPesosAproximado"
+                                            maxlength="10" required></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="agregarBtn"
+                        onclick="agregarFilaPagares()">+</button>
+                </div>
+                <script>
+                    function agregarFilaPagares() {
+                        var table = document.getElementById("dataTablePagares");
+                        var rowCount = table.rows.length;
+
+                        var row = table.insertRow(rowCount);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+                        var cell5 = row.insertCell(4);
+                        var cell6 = row.insertCell(5);
+
+                        cell1.innerHTML = rowCount;
+                        cell2.innerHTML = '<input type="date" class="form-control text-center" id="FechaVencimientoPagares' + rowCount + '" required>';
+                        cell3.innerHTML = '<input type="date" class="form-control text-center " id="FechaPrescripcionPagares' + rowCount + '" required>';
+                        cell4.innerHTML = '<input type="number" class="form-control text-center" id="MontoPagares' + rowCount + '" required>';
+                        cell5.innerHTML = '<input type="text" class="form-control text-center" id="Moneda' + rowCount + '" maxlength="10" required>';
+                        cell6.innerHTML = '<input type="number" class="form-control text-center" id="MontoPesosAproximado' + rowCount + '" maxlength="10" required>';
+                    }
+                </script>
+            </div>
+
+            <h4> OTROS DOCUMENTOS: </h4>
+            <hr>
+            <div class="row mb-3 align-items-end">
+                <div class="container">
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center" id="dataTableDocumentosExtras">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">DESCRIPCIÓN DEL ARCHIVO</th>
+                                    <th scope="col">ARCHIVO</th>
+                                    <th scope="col">MODO DE ENTREGA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td><input type="text" class="form-control text-center" id="DescripcionArchivoExtra"
+                                            required></td>
+                                    <td><input type="file" class="form-control text-center" id="ArchivoExtra" required>
+                                    </td>
+                                    <td>
+                                        <select class="form-select" name="ModoEntregaArchivoExtra"
+                                            id="ModoEntregaArchivoExtra" required>
+                                            <option selected disabled value=""></option>
+                                            <option value="Original">ORIGINAL</option>
+                                            <option value="Copia">COPIA</option>
+                                            <option value="Electronico">ELECTRONICO</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="agregarBtn"
+                        onclick="agregarFilaDocumentosExtras()">+</button>
+                </div>
+                <script>
+                    function agregarFilaDocumentosExtras() {
+                        var table = document.getElementById("dataTableDocumentosExtras");
+                        var rowCount = table.rows.length;
+
+                        var row = table.insertRow(rowCount);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3); // Corregir la posición a 3
+
+                        cell1.innerHTML = rowCount;
+                        cell2.innerHTML = '<input type="text" class="form-control text-center" id="DescripcionArchivoExtra' + rowCount + '" required>';
+                        cell3.innerHTML = '<input type="file" class="form-control text-center " id="ArchivoExtra' + rowCount + '" required>';
+                        var selectOptions = '<select class="form-select" name="ModoEntregaArchivoExtra' + rowCount + '" id="ModoEntregaArchivoExtra' + rowCount + '" required>' +
+                            '<option selected disabled value=""></option>' +
+                            '<option value="Original">ORIGINAL</option>' +
+                            '<option value="Copia">COPIA</option>' +
+                            '<option value="Electronico">ELECTRONICO</option>' +
+                            '</select>';
+
+                        cell4.innerHTML = selectOptions;
+                    }
+                </script>
+
+            </div>
+
+
 
             <div class="row mb-3">
                 <div class="col-md-3 offset-md-10 justify-content-end">

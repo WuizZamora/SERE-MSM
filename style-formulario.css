@@ -18,3 +18,11 @@
 #campoFechaValidacion{
     display: none;
 }
+
+#CampoTipoGarantia{
+    display: none;
+}
+
+body{
+    max-width: 90%;
+}
