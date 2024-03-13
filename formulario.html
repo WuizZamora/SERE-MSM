@@ -47,7 +47,7 @@
                 <div class="col-md-3 ">
                     <div class="mb-3">
                         <label class="form-label">TIPO DE CASO (C)</label>
-                        <select class="form-select" name="TipoCaso" id="TipoCaso" required>
+                        <select class="form-select" name="TipoDeCaso" id="TipoDeCaso" required>
                             <option selected disabled value=""></option>
                             <option value="ExtraJudicial">EXTRAJUDICIAL</option>
                             <option value="Judicial">JUDICIAL</option>
@@ -58,7 +58,7 @@
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">FECHA DE ASIGNACIÓN: </label>
-                        <input type="date" class="form-control" name="FechaAsignacion" id="FechaAsignacion" required>
+                        <input type="date" class="form-control" name="FechaDeAsignacion" id="FechaDeAsignacion" required>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">NOMBRE DEL CONTACTO PRINCIPAL</label>
                         <input type="text" class="form-control" name="NombreContactoPrincipal"
@@ -238,9 +238,9 @@
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">PUESTO / CARGO DEL CONTACTO PRINCIPAL:</label>
-                        <input type="text" class="form-control" name="Puesto-Cargo" id="Puesto-Cargo" maxlength="10">
+                        <input type="text" class="form-control" name="PuestoCargoContactoPrincipal" id="PuestoCargoContactoPrincipal" maxlength="10">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="col-md-3">
                     <div class="mb-3">
@@ -252,16 +252,16 @@
 
                 <div class="col-md-3">
                     <div class="mb-3">
-                        <label class="form-label">DOMICILIOS ALTERNATIVOS:</label>
-                        <input type="text" class="form-control" name="DomiciliosAlternativos"
-                            id="DomiciliosAlternativos" maxlength="10">
+                        <label class="form-label">DOMICILIO ALTERNATIVO:</label>
+                        <input type="text" class="form-control" name="DomiciliosAlternativo"
+                            id="DomiciliosAlternativo" maxlength="10">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">¿VÍA PRINCIPAL DE CONTACTO?:</label>
-                        <input type="text" class="form-control" name="ViaContacto" id="ViaContacto" maxlength="10"
+                        <input type="text" class="form-control" name="ViaPrincipalDeContacto" id="ViaPrincipalDeContacto" maxlength="10"
                             placeholder="Correo, teléfono, visita domiciliaria " required>
                     </div>
                 </div>
@@ -300,7 +300,7 @@
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">NÚMERO DE CELULAR:</label>
-                        <input type="text" class="form-control" name="Celular" id="Celular"
+                        <input type="text" class="form-control" name="NumeroCelular" id="NumeroCelular"
                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             maxlength="10"
                             onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
@@ -365,7 +365,7 @@
             <hr>
             <div id="contactosContainer">
                 <div class="row mb-3 align-items-end" id="contactoContainer">
-                    <h4>DEL CONTACTO ADICIONAL:</h4>
+                    <h4>DEL CONTACTO:</h4>
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">NOMBRE:</label>
@@ -531,10 +531,10 @@
                                                 <tr>
                                                     <th scope="row">1</th>
                                                     <td><input type="text" class="form-control text-center"
-                                                            placeholder="ADEUDO 1" id="descripcionAdeudo1" required>
+                                                            placeholder="ADEUDO 1" id="DescripcionAdeudo1" name="descripcionAdeudo1" required>
                                                     </td>
                                                     <td><input type="number" class="form-control text-center montoInput"
-                                                            placeholder="MONTO 1" id="adeudoMonto1"
+                                                            placeholder="MONTO 1" id="adeudoMonto1" name="adeudoMonto1"
                                                             onkeyup="calcularTotal()" required></td>
                                                 </tr>
                                             </tbody>
@@ -675,7 +675,7 @@
 
                     tipoGarantiaSelect.addEventListener("change", function () {
                         if (tipoGarantiaSelect.value === "Otros") {
-                            campoOtros.style.display = "block";
+                            campoOtros.style.display = "flex";
                         } else {
                             campoOtros.style.display = "none";
                         }
@@ -813,7 +813,7 @@
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label class="form-label">CIRCUNSTANCIAS ESPECIFICAS: </label>
-                        <textarea name="AccionesTomadas" id="AccionesTomadas" rows="10" class="form-control"
+                        <textarea name="CircunstanciasEspecificas" id="CircunstanciasEspecificas" rows="10" class="form-control"
                             maxlength="450"
                             placeholder="¿Existen circunstancias especiales que puedan afectar la capacidad del deudor para pagar, como problemas financieros, disputas de facturación o cambios en la situación personal?"
                             required></textarea>
