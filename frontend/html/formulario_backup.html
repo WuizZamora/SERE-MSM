@@ -4,16 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLICITUD | ALTA</title>
+    <title>SOLICITUD | ALTA (RESPALDO)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style-formulario.css">
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+
 
     <div class="container text-center">
         <h1>MONDAINAI SERE | SISTEMA EXPERTO EN RELACIONES EMPRESARIALES</h1>
@@ -25,7 +23,7 @@
     <div class="container">
         <h2> Información general de la cuenta</h2>
         <hr>
-        <form action="#" method="post" autocomplete="off">
+        <form action="#" method="post" autocomplete="off" onsubmit="return validarFormulario()">
             <div class="row mb-3">
 
                 <div class="col-md-3">
@@ -58,7 +56,8 @@
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">FECHA DE ASIGNACIÓN: </label>
-                        <input type="date" class="form-control" name="FechaDeAsignacion" id="FechaDeAsignacion" required>
+                        <input type="date" class="form-control" name="FechaDeAsignacion" id="FechaDeAsignacion"
+                            required>
                     </div>
                 </div>
             </div>
@@ -86,8 +85,7 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">RAZÓN SOCIAL</label>
-                            <input type="text" class="form-control" name="RazonSocial" id="RazonSocial" maxlength="10"
-                                required>
+                            <input type="text" class="form-control" name="RazonSocial" id="RazonSocial" maxlength="10">
                         </div>
                     </div>
 
@@ -103,7 +101,7 @@
                         <div class="mb-3">
                             <label class="form-label">¿CUENTA CON ALGÚN PODER NOTARIAL?</label>
                             <select class="form-select" name="PoderNotarial" id="PoderNotarial"
-                                onchange="mostrarCampoDetalle()" required>
+                                onchange="mostrarCampoDetalle()">
                                 <option selected disabled value=""></option>
                                 <option value="Si">SI</option>
                                 <option value="No">NO</option>
@@ -114,23 +112,9 @@
                         <div class="mb-3">
                             <label class="form-label">¿Cuál?</label>
                             <input type="text" class="form-control" name="PoderNotarialDetalle"
-                                id="PoderNotarialDetalle" maxlength="10" required>
+                                id="PoderNotarialDetalle" maxlength="10">
                         </div>
                     </div>
-
-                    <script>
-                        function mostrarCampoDetalle() {
-                            var seleccion = document.getElementById("PoderNotarial").value;
-                            var campoAdicional = document.getElementById("campoDetalle");
-
-                            if (seleccion === "Si") {
-                                campoAdicional.style.display = "flex";
-                            } else {
-                                campoAdicional.style.display = "none";
-                            }
-                        }
-                    </script>
-
 
                     <div class="col-md-3">
                         <div class="mb-3">
@@ -147,22 +131,22 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO FISCAL:</label>
-                            <input type="text" class="form-control" name="DomicilioFiscal" id="DomicilioFiscal"
+                            <input type="text" class="form-control" name="DomicilioFiscalPFAE" id="DomicilioFiscal"
                                 maxlength="10">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO PERSONAL:</label>
-                            <input type="text" class="form-control" name="DomicilioPersonal" id="DomicilioPersonal"
-                                maxlength="10" required>
+                            <input type="text" class="form-control" name="DomicilioPersonalPFAE" id="DomicilioPersonal"
+                                maxlength="10">
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO LABORAL:</label>
-                            <input type="text" class="form-control" name="DomicilioLaboral" id="DomicilioLaboral"
+                            <input type="text" class="form-control" name="DomicilioLaboralPFAE" id="DomicilioLaboral"
                                 maxlength="10">
                         </div>
                     </div>
@@ -173,44 +157,19 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO PERSONAL:</label>
-                            <input type="text" class="form-control" name="DomicilioPersonal" id="DomicilioPersonal"
-                                maxlength="10" required>
+                            <input type="text" class="form-control" name="DomicilioPersonalPF" id="DomicilioPersonal"
+                                maxlength="10">
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO LABORAL:</label>
-                            <input type="text" class="form-control" name="DomicilioLaboral" id="DomicilioLaboral"
+                            <input type="text" class="form-control" name="DomicilioLaboralPF" id="DomicilioLaboral"
                                 maxlength="10">
                         </div>
                     </div>
                 </div>
-
-
-                <script>
-                    function mostrarCamposSegunRegimen() {
-                        var regimen = document.getElementById("RegimenDeudor").value;
-
-                        var camposPersonaMoral = document.getElementById("camposPersonaMoral");
-                        var camposPersonaFisica = document.getElementById("camposPersonaFisica");
-                        var camposPersonaFisActEmp = document.getElementById("camposPersonaFisicaActEmp");
-
-                        if (regimen === "PersonaMoral") {
-                            camposPersonaMoral.style.display = "flex";
-                            camposPersonaFisica.style.display = "none";
-                            camposPersonaFisActEmp.style.display = "none"
-                        } else if (regimen === "PersonaFisica") {
-                            camposPersonaMoral.style.display = "none";
-                            camposPersonaFisica.style.display = "flex";
-                            camposPersonaFisActEmp.style.display = "none"
-                        } else if (regimen === "PersonaFisicaActEmp") {
-                            camposPersonaMoral.style.display = "none";
-                            camposPersonaFisica.style.display = "none";
-                            camposPersonaFisActEmp.style.display = "flex"
-                        }
-                    }
-                </script>
 
                 <!-- CAMPOS COMUNES DE TODOS LOS REGIMENES -->
                 <div class="col-md-3">
@@ -253,15 +212,16 @@
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">DOMICILIO ALTERNATIVO:</label>
-                        <input type="text" class="form-control" name="DomiciliosAlternativo"
-                            id="DomiciliosAlternativo" maxlength="10">
+                        <input type="text" class="form-control" name="DomiciliosAlternativo" id="DomiciliosAlternativo"
+                            maxlength="10">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">¿VÍA PRINCIPAL DE CONTACTO?:</label>
-                        <input type="text" class="form-control" name="ViaPrincipalDeContacto" id="ViaPrincipalDeContacto" maxlength="10"
+                        <input type="text" class="form-control" name="ViaPrincipalDeContacto"
+                            id="ViaPrincipalDeContacto" maxlength="10"
                             placeholder="Correo, teléfono, visita domiciliaria " required>
                     </div>
                 </div>
@@ -281,21 +241,9 @@
                 <div class="col-md-3" id="campoFechaValidacion">
                     <div class="mb-3">
                         <label class="form-label">FECHA DE VALIDACIÓN: </label>
-                        <input type="date" class="form-control" name="FechaValidacion" id="FechaValidacion" required>
+                        <input type="date" class="form-control" name="FechaValidacion" id="FechaValidacion">
                     </div>
                 </div>
-                <script>
-                    function mostrarCampoFechaValidacion() {
-                        var DomicilioVerificado = document.getElementById("DomicilioConfirmado").value;
-                        var campoFecha = document.getElementById("campoFechaValidacion");
-
-                        if (DomicilioVerificado === "Si") {
-                            campoFecha.style.display = "flex";
-                        } else {
-                            campoFecha.style.display = "none";
-                        }
-                    }
-                </script>
 
                 <div class="col-md-3">
                     <div class="mb-3">
@@ -342,22 +290,6 @@
                         <span id="resultado" class="text-danger"></span>
                     </div>
                 </div>
-
-                <script>
-                    function validarCorreoElectronico() {
-                        var email = document.getElementById("Email").value;
-                        var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-                        let resultado = document.getElementById("resultado");
-                        if (regex.test(email)) {
-                            document.getElementById("Email").classList.remove("invalid");
-                            resultado.textContent = " ";
-                        } else {
-                            document.getElementById("Email").classList.add("invalid");
-                            resultado.textContent = "El EMAIL ingresado no es válido. Verifica el formato.";
-                            resultado.classList.add("text-danger");
-                        }
-                    }
-                </script>
             </div>
 
             <h2 style="display: inline;">CONTACTOS</h2>
@@ -430,22 +362,6 @@
                         </div>
                     </div>
 
-                    <script>
-                        function validarCorreoElectronicoContacto(inputField) {
-                            var email = inputField.value;
-                            var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-                            let resultado = inputField.id === "EmailContacto" ? document.getElementById("resultadoContacto") : document.getElementById("resultadoContactoAdicional");
-                            if (regex.test(email)) {
-                                inputField.classList.remove("invalid");
-                                resultado.textContent = " ";
-                            } else {
-                                inputField.classList.add("invalid");
-                                resultado.textContent = "El EMAIL ingresado no es válido. Verifica el formato.";
-                                resultado.classList.add("text-danger");
-                            }
-                        }
-                    </script>
-
                     <div>
                         <div class="mb-3">
                             <label class="form-label">OBSERVACIONES ADICIONALES:</label>
@@ -455,46 +371,6 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    var contadorContactos = 1; // Contador para identificadores únicos
-                    function agregarContacto() {
-                        // Verifica la cantidad máxima permitida de contactos (en este caso, 2 adicionales)
-                        if (contadorContactos <= 2) {
-                            // Clona el contenedor de contacto y asigna un nuevo ID único
-                            var nuevoContacto = document.getElementById('contactoContainer').cloneNode(true);
-                            nuevoContacto.id = 'contactoContainer' + contadorContactos++;
-
-                            // Actualiza el texto "DEL CONTACTO" con el número correspondiente
-                            var delContactoElement = nuevoContacto.querySelector('h4');
-                            delContactoElement.textContent = 'DEL CONTACTO ADICIONAL ' + contadorContactos + ':';
-
-                            // Modifica los IDs de los campos de entrada para reflejar el número de contacto
-                            var inputs = nuevoContacto.querySelectorAll('input[type="text"], input[type="email"]');
-                            inputs.forEach(function (input) {
-                                // Obtén el nombre del campo (ej. "NombreContacto")
-                                var fieldName = input.name;
-                                // Modifica el ID agregando el número de contacto (ej. "NombreContacto2")
-                                input.id = fieldName + contadorContactos;
-                                // Limpia el valor y la clase "invalid"
-                                input.value = '';
-                                input.classList.remove('invalid');
-                            });
-
-                            // Modifica el ID del campo de texto (textarea) para reflejar el número de contacto
-                            var textarea = nuevoContacto.querySelector('textarea');
-                            textarea.id = 'ObservacionesContacto' + contadorContactos;
-                            textarea.value = ''; // Limpia el valor del textarea
-
-                            // Añade el nuevo contacto al contenedor
-                            document.getElementById('contactosContainer').appendChild(nuevoContacto);
-                        }
-
-                        // Deshabilita el botón si se alcanza el límite de contactos
-                        if (contadorContactos > 2) {
-                            document.getElementById('btnAgregarContacto').disabled = true;
-                        }
-                    }
-                </script>
             </div>
             <div id="ContainerBotonAgregar">
                 <button type="button" onclick="agregarContacto()" class="btn btn-primary btn-lg"
@@ -531,11 +407,12 @@
                                                 <tr>
                                                     <th scope="row">1</th>
                                                     <td><input type="text" class="form-control text-center"
-                                                            placeholder="ADEUDO 1" id="DescripcionAdeudo1" name="descripcionAdeudo1" required>
+                                                            placeholder="ADEUDO 1" id="DescripcionAdeudo1"
+                                                            name="descripcionAdeudo1">
                                                     </td>
                                                     <td><input type="number" class="form-control text-center montoInput"
                                                             placeholder="MONTO 1" id="adeudoMonto1" name="adeudoMonto1"
-                                                            onkeyup="calcularTotal()" required></td>
+                                                            onkeyup="calcularTotal()"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -547,44 +424,6 @@
                                             <label>Saldo Total Actualizado: $</label>
                                             <span id="total"></span>
                                         </div>
-                                        <script>
-                                            var contador = 1;
-
-                                            function agregarFila() {
-                                                if (contador < 10) {
-                                                    contador++;
-
-                                                    var nuevaFila = `
-                                                        <tr>
-                                                            <th scope="row">${contador}</th>
-                                                            <td><input type="text" class="form-control text-center" placeholder="ADEUDO ${contador}" id="descripcionAdeudo${contador}" required></td>
-                                                            <td><input type="number" class="form-control text-center montoInput" placeholder="MONTO ${contador}" id="adeudoMonto${contador}" onkeyup="calcularTotal()" required></td>
-                                                        </tr>
-                                                    `;
-
-                                                    // Agregar la nueva fila al final de la tabla
-                                                    $("#dataTable tbody").append(nuevaFila);
-
-                                                    // Calcular y mostrar el total
-                                                    calcularTotal();
-                                                } else {
-                                                    alert("Solo se permiten hasta 10 filas.");
-                                                    document.getElementById("agregarBtn").disabled = true;
-                                                }
-                                            }
-
-                                            function calcularTotal() {
-                                                var total = 0;
-
-                                                for (var i = 1; i <= contador; i++) {
-                                                    var monto = parseFloat($("#adeudoMonto" + i).val()) || 0;
-                                                    total += monto;
-                                                }
-
-                                                // Asegura que el total se muestre correctamente
-                                                $("#total").text(total.toFixed(2));
-                                            }
-                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -641,7 +480,7 @@
 
                     <div class="col-md-3 mb-3" id="CampoTipoGarantia" style="display: none;">
                         <label class="form-label">¿TIPO DE GARANTÍA?</label>
-                        <select class="form-select" id="TipoGarantia" name="TipoGarantia" required>
+                        <select class="form-select" id="TipoGarantia" name="TipoGarantia">
                             <option selected disabled value=""></option>
                             <option value="Vehiculo">Vehiculo</option>
                             <option value="Maquinaria-Equipamiento">Maquinaria y Equipamiento</option>
@@ -668,31 +507,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    var tipoGarantiaSelect = document.getElementById("TipoGarantia");
-                    var campoOtros = document.getElementById("campoOtros");
-
-                    tipoGarantiaSelect.addEventListener("change", function () {
-                        if (tipoGarantiaSelect.value === "Otros") {
-                            campoOtros.style.display = "flex";
-                        } else {
-                            campoOtros.style.display = "none";
-                        }
-                    });
-                });
-
-                function mostrarCampoTipoGarantia() {
-                    var seleccionTipoDeuda = document.getElementById("TipoDeuda").value;
-                    var campoAdicionalTipoGarantia = document.getElementById("CampoTipoGarantia");
-
-                    if (seleccionTipoDeuda === "Garantizada") {
-                        campoAdicionalTipoGarantia.style.display = "flex";
-                    } else {
-                        campoAdicionalTipoGarantia.style.display = "none";
-                    }
-                }
-            </script>
 
             <div class="row mb-3 align-items-end">
                 <div class="col-md-6">
@@ -767,23 +581,10 @@
                             <div class="mb-3">
                                 <label class="form-label">SUBE 1 ESTADO DE CUENTA:</label>
                                 <input type="file" class="form-control" name="EstadoDeCuentaFile"
-                                    id="EstadoDeCuentaFile" required>
+                                    id="EstadoDeCuentaFile">
                             </div>
                         </div>
                     </div>
-
-                    <script>
-                        function mostrarCampoEstadoDeCuenta() {
-                            var seleccionEstadoDeCuenta = document.getElementById("EstadoDeCuenta").value;
-                            var campoAdicionalEstadoDeCuenta = document.getElementById("CampoEstadoDeCuenta");
-
-                            if (seleccionEstadoDeCuenta === "Si") {
-                                campoAdicionalEstadoDeCuenta.style.display = "flex";
-                            } else {
-                                campoAdicionalEstadoDeCuenta.style.display = "none";
-                            }
-                        }
-                    </script>
                 </div>
             </div>
             <h2> UNA BREVE DESCRIPCIÓN DEL CASO</h2>
@@ -813,141 +614,13 @@
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label class="form-label">CIRCUNSTANCIAS ESPECIFICAS: </label>
-                        <textarea name="CircunstanciasEspecificas" id="CircunstanciasEspecificas" rows="10" class="form-control"
-                            maxlength="450"
+                        <textarea name="CircunstanciasEspecificas" id="CircunstanciasEspecificas" rows="10"
+                            class="form-control" maxlength="450"
                             placeholder="¿Existen circunstancias especiales que puedan afectar la capacidad del deudor para pagar, como problemas financieros, disputas de facturación o cambios en la situación personal?"
                             required></textarea>
                     </div>
                 </div>
             </div>
-
-
-
-            <h2>DOCUMENTOS ENTREGADOS AL DESPACHO </h2>
-            <hr>
-            <div class="row mb-3 align-items-end">
-                <div class="container">
-                    <div class="table-responsive">
-                        <table class="table table-hover text-center" id="dataTablePagares">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">FECHA DE VENCIMIENTO </th>
-                                    <th scope="col">FECHA DE PRESCRIPCIÓN</th>
-                                    <th scope="col">MONTO ($)</th>
-                                    <th scope="col">MONEDA</th>
-                                    <th scope="col">MONTO PESOS APROXIMADOS ($)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td><input type="date" class="form-control text-center" id="FechaVencimientoPagares"
-                                            required></td>
-                                    <td><input type="date" class="form-control text-center"
-                                            id="FechaPrescripcionPagares" required></td>
-                                    <td><input type="number" class="form-control text-center" id="MontoPagares"
-                                            required></td>
-                                    <td><input type="text" class="form-control text-center" id="Moneda" maxlength="10"
-                                            required>
-                                    </td>
-                                    <td><input type="number" class="form-control text-center" id="MontoPesosAproximado"
-                                            maxlength="10" required></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <button type="button" class="btn btn-primary" id="agregarBtn"
-                        onclick="agregarFilaPagares()">+</button>
-                </div>
-                <script>
-                    function agregarFilaPagares() {
-                        var table = document.getElementById("dataTablePagares");
-                        var rowCount = table.rows.length;
-
-                        var row = table.insertRow(rowCount);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-                        var cell4 = row.insertCell(3);
-                        var cell5 = row.insertCell(4);
-                        var cell6 = row.insertCell(5);
-
-                        cell1.innerHTML = rowCount;
-                        cell2.innerHTML = '<input type="date" class="form-control text-center" id="FechaVencimientoPagares' + rowCount + '" required>';
-                        cell3.innerHTML = '<input type="date" class="form-control text-center " id="FechaPrescripcionPagares' + rowCount + '" required>';
-                        cell4.innerHTML = '<input type="number" class="form-control text-center" id="MontoPagares' + rowCount + '" required>';
-                        cell5.innerHTML = '<input type="text" class="form-control text-center" id="Moneda' + rowCount + '" maxlength="10" required>';
-                        cell6.innerHTML = '<input type="number" class="form-control text-center" id="MontoPesosAproximado' + rowCount + '" maxlength="10" required>';
-                    }
-                </script>
-            </div>
-
-            <h4> OTROS DOCUMENTOS: </h4>
-            <hr>
-            <div class="row mb-3 align-items-end">
-                <div class="container">
-                    <div class="table-responsive">
-                        <table class="table table-hover text-center" id="dataTableDocumentosExtras">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">DESCRIPCIÓN DEL ARCHIVO</th>
-                                    <th scope="col">ARCHIVO</th>
-                                    <th scope="col">MODO DE ENTREGA</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td><input type="text" class="form-control text-center" id="DescripcionArchivoExtra"
-                                            required></td>
-                                    <td><input type="file" class="form-control text-center" id="ArchivoExtra" required>
-                                    </td>
-                                    <td>
-                                        <select class="form-select" name="ModoEntregaArchivoExtra"
-                                            id="ModoEntregaArchivoExtra" required>
-                                            <option selected disabled value=""></option>
-                                            <option value="Original">ORIGINAL</option>
-                                            <option value="Copia">COPIA</option>
-                                            <option value="Electronico">ELECTRONICO</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <button type="button" class="btn btn-primary" id="agregarBtn"
-                        onclick="agregarFilaDocumentosExtras()">+</button>
-                </div>
-                <script>
-                    function agregarFilaDocumentosExtras() {
-                        var table = document.getElementById("dataTableDocumentosExtras");
-                        var rowCount = table.rows.length;
-
-                        var row = table.insertRow(rowCount);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-                        var cell4 = row.insertCell(3); // Corregir la posición a 3
-
-                        cell1.innerHTML = rowCount;
-                        cell2.innerHTML = '<input type="text" class="form-control text-center" id="DescripcionArchivoExtra' + rowCount + '" required>';
-                        cell3.innerHTML = '<input type="file" class="form-control text-center " id="ArchivoExtra' + rowCount + '" required>';
-                        var selectOptions = '<select class="form-select" name="ModoEntregaArchivoExtra' + rowCount + '" id="ModoEntregaArchivoExtra' + rowCount + '" required>' +
-                            '<option selected disabled value=""></option>' +
-                            '<option value="Original">ORIGINAL</option>' +
-                            '<option value="Copia">COPIA</option>' +
-                            '<option value="Electronico">ELECTRONICO</option>' +
-                            '</select>';
-
-                        cell4.innerHTML = selectOptions;
-                    }
-                </script>
-
-            </div>
-
-
 
             <div class="row mb-3">
                 <div class="col-md-3 offset-md-10 justify-content-end">
@@ -958,7 +631,343 @@
             </div>
 
         </form>
+
+
+
+        <h2>DOCUMENTOS ENTREGADOS AL DESPACHO </h2>
+        <hr>
+        <div class="row mb-3 align-items-end">
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table table-hover text-center" id="dataTablePagares">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">FECHA DE VENCIMIENTO </th>
+                                <th scope="col">FECHA DE PRESCRIPCIÓN</th>
+                                <th scope="col">MONTO ($)</th>
+                                <th scope="col">MONEDA</th>
+                                <th scope="col">MONTO PESOS APROXIMADOS ($)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><input type="date" class="form-control text-center" id="FechaVencimientoPagares"
+                                        required></td>
+                                <td><input type="date" class="form-control text-center" id="FechaPrescripcionPagares"
+                                        required></td>
+                                <td><input type="number" class="form-control text-center" id="MontoPagares" required>
+                                </td>
+                                <td><input type="text" class="form-control text-center" id="Moneda" maxlength="10"
+                                        required>
+                                </td>
+                                <td><input type="number" class="form-control text-center" id="MontoPesosAproximado"
+                                        maxlength="10" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-primary" id="agregarBtn" onclick="agregarFilaPagares()">+</button>
+            </div>
+        </div>
+
+        <h4> OTROS DOCUMENTOS: </h4>
+        <hr>
+        <div class="row mb-3 align-items-end">
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table table-hover text-center" id="dataTableDocumentosExtras">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">DESCRIPCIÓN DEL ARCHIVO</th>
+                                <th scope="col">ARCHIVO</th>
+                                <th scope="col">MODO DE ENTREGA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><input type="text" class="form-control text-center" id="DescripcionArchivoExtra"
+                                        required></td>
+                                <td><input type="file" class="form-control text-center" id="ArchivoExtra" required>
+                                </td>
+                                <td>
+                                    <select class="form-select" name="ModoEntregaArchivoExtra"
+                                        id="ModoEntregaArchivoExtra" required>
+                                        <option selected disabled value=""></option>
+                                        <option value="Original">ORIGINAL</option>
+                                        <option value="Copia">COPIA</option>
+                                        <option value="Electronico">ELECTRONICO</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-primary" id="agregarBtn"
+                    onclick="agregarFilaDocumentosExtras()">+</button>
+            </div>
+
+        </div>
     </div>
+
+    <script>
+        function validarFormulario() {
+var campos = document.querySelectorAll('input[required], select[required]');
+var formularioValido = true;
+
+campos.forEach(function (campo) {
+if (campo.type === 'select-one') {
+    if (campo.value === '') {
+        formularioValido = false;
+        campo.classList.add('campo-invalido');
+    } else {
+        campo.classList.remove('campo-invalido');
+    }
+} else {
+    if (campo.value.trim() === '') {
+        formularioValido = false;
+        campo.classList.add('campo-invalido');
+    } else {
+        campo.classList.remove('campo-invalido');
+    }
+}
+});
+
+return formularioValido;
+}
+    </script>
+
+    <script>
+        function mostrarCampoDetalle() {
+            var seleccion = document.getElementById("PoderNotarial").value;
+            var campoAdicional = document.getElementById("campoDetalle");
+
+            if (seleccion === "Si") {
+                campoAdicional.style.display = "flex";
+            } else {
+                campoAdicional.style.display = "none";
+            }
+        }
+
+        function mostrarCamposSegunRegimen() {
+            var regimen = document.getElementById("RegimenDeudor").value;
+
+            var camposPersonaMoral = document.getElementById("camposPersonaMoral");
+            var camposPersonaFisica = document.getElementById("camposPersonaFisica");
+            var camposPersonaFisActEmp = document.getElementById("camposPersonaFisicaActEmp");
+
+            if (regimen === "PersonaMoral") {
+                camposPersonaMoral.style.display = "flex";
+                camposPersonaFisica.style.display = "none";
+                camposPersonaFisActEmp.style.display = "none"
+            } else if (regimen === "PersonaFisica") {
+                camposPersonaMoral.style.display = "none";
+                camposPersonaFisica.style.display = "flex";
+                camposPersonaFisActEmp.style.display = "none"
+            } else if (regimen === "PersonaFisicaActEmp") {
+                camposPersonaMoral.style.display = "none";
+                camposPersonaFisica.style.display = "none";
+                camposPersonaFisActEmp.style.display = "flex"
+            }
+        }
+
+        function mostrarCampoFechaValidacion() {
+            var DomicilioVerificado = document.getElementById("DomicilioConfirmado").value;
+            var campoFecha = document.getElementById("campoFechaValidacion");
+
+            if (DomicilioVerificado === "Si") {
+                campoFecha.style.display = "flex";
+            } else {
+                campoFecha.style.display = "none";
+            }
+        }
+
+        function validarCorreoElectronico() {
+            var email = document.getElementById("Email").value;
+            var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            let resultado = document.getElementById("resultado");
+            if (regex.test(email)) {
+                document.getElementById("Email").classList.remove("invalid");
+                resultado.textContent = " ";
+            } else {
+                document.getElementById("Email").classList.add("invalid");
+                resultado.textContent = "El EMAIL ingresado no es válido. Verifica el formato.";
+                resultado.classList.add("text-danger");
+            }
+        }
+        function validarCorreoElectronicoContacto(inputField) {
+            var email = inputField.value;
+            var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            let resultado = inputField.id === "EmailContacto" ? document.getElementById("resultadoContacto") : document.getElementById("resultadoContactoAdicional");
+            if (regex.test(email)) {
+                inputField.classList.remove("invalid");
+                resultado.textContent = " ";
+            } else {
+                inputField.classList.add("invalid");
+                resultado.textContent = "El EMAIL ingresado no es válido. Verifica el formato.";
+                resultado.classList.add("text-danger");
+            }
+        }
+
+        var contadorContactos = 1; // Contador para identificadores únicos
+        function agregarContacto() {
+            // Verifica la cantidad máxima permitida de contactos (en este caso, 2 adicionales)
+            if (contadorContactos <= 2) {
+                // Clona el contenedor de contacto y asigna un nuevo ID único
+                var nuevoContacto = document.getElementById('contactoContainer').cloneNode(true);
+                nuevoContacto.id = 'contactoContainer' + contadorContactos++;
+
+                // Actualiza el texto "DEL CONTACTO" con el número correspondiente
+                var delContactoElement = nuevoContacto.querySelector('h4');
+                delContactoElement.textContent = 'DEL CONTACTO ADICIONAL ' + contadorContactos + ':';
+
+                // Modifica los IDs de los campos de entrada para reflejar el número de contacto
+                var inputs = nuevoContacto.querySelectorAll('input[type="text"], input[type="email"]');
+                inputs.forEach(function (input) {
+                    // Obtén el nombre del campo (ej. "NombreContacto")
+                    var fieldName = input.name;
+                    // Modifica el ID agregando el número de contacto (ej. "NombreContacto2")
+                    input.id = fieldName + contadorContactos;
+                    // Limpia el valor y la clase "invalid"
+                    input.value = '';
+                    input.classList.remove('invalid');
+                });
+
+                // Modifica el ID del campo de texto (textarea) para reflejar el número de contacto
+                var textarea = nuevoContacto.querySelector('textarea');
+                textarea.id = 'ObservacionesContacto' + contadorContactos;
+                textarea.value = ''; // Limpia el valor del textarea
+
+                // Añade el nuevo contacto al contenedor
+                document.getElementById('contactosContainer').appendChild(nuevoContacto);
+            }
+
+            // Deshabilita el botón si se alcanza el límite de contactos
+            if (contadorContactos > 2) {
+                document.getElementById('btnAgregarContacto').disabled = true;
+            }
+        }
+
+        var contador = 1;
+
+        function agregarFila() {
+            if (contador < 10) {
+                contador++;
+
+                var nuevaFila = `
+                                        <tr>
+                                            <th scope="row">${contador}</th>
+                                            <td><input type="text" class="form-control text-center" placeholder="ADEUDO ${contador}" id="descripcionAdeudo${contador}" required></td>
+                                            <td><input type="number" class="form-control text-center montoInput" placeholder="MONTO ${contador}" id="adeudoMonto${contador}" onkeyup="calcularTotal()" required></td>
+                                        </tr>
+                                    `;
+
+                // Agregar la nueva fila al final de la tabla
+                $("#dataTable tbody").append(nuevaFila);
+
+                // Calcular y mostrar el total
+                calcularTotal();
+            } else {
+                alert("Solo se permiten hasta 10 filas.");
+                document.getElementById("agregarBtn").disabled = true;
+            }
+        }
+
+        function calcularTotal() {
+            var total = 0;
+
+            for (var i = 1; i <= contador; i++) {
+                var monto = parseFloat($("#adeudoMonto" + i).val()) || 0;
+                total += monto;
+            }
+
+            // Asegura que el total se muestre correctamente
+            $("#total").text(total.toFixed(2));
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var tipoGarantiaSelect = document.getElementById("TipoGarantia");
+            var campoOtros = document.getElementById("campoOtros");
+
+            tipoGarantiaSelect.addEventListener("change", function () {
+                if (tipoGarantiaSelect.value === "Otros") {
+                    campoOtros.style.display = "flex";
+                } else {
+                    campoOtros.style.display = "none";
+                }
+            });
+        });
+
+        function mostrarCampoTipoGarantia() {
+            var seleccionTipoDeuda = document.getElementById("TipoDeuda").value;
+            var campoAdicionalTipoGarantia = document.getElementById("CampoTipoGarantia");
+
+            if (seleccionTipoDeuda === "Garantizada") {
+                campoAdicionalTipoGarantia.style.display = "flex";
+            } else {
+                campoAdicionalTipoGarantia.style.display = "none";
+            }
+        }
+
+        function mostrarCampoEstadoDeCuenta() {
+            var seleccionEstadoDeCuenta = document.getElementById("EstadoDeCuenta").value;
+            var campoAdicionalEstadoDeCuenta = document.getElementById("CampoEstadoDeCuenta");
+
+            if (seleccionEstadoDeCuenta === "Si") {
+                campoAdicionalEstadoDeCuenta.style.display = "flex";
+            } else {
+                campoAdicionalEstadoDeCuenta.style.display = "none";
+            }
+        }
+        function agregarFilaPagares() {
+            var table = document.getElementById("dataTablePagares");
+            var rowCount = table.rows.length;
+
+            var row = table.insertRow(rowCount);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+
+            cell1.innerHTML = rowCount;
+            cell2.innerHTML = '<input type="date" class="form-control text-center" id="FechaVencimientoPagares' + rowCount + '" required>';
+            cell3.innerHTML = '<input type="date" class="form-control text-center " id="FechaPrescripcionPagares' + rowCount + '" required>';
+            cell4.innerHTML = '<input type="number" class="form-control text-center" id="MontoPagares' + rowCount + '" required>';
+            cell5.innerHTML = '<input type="text" class="form-control text-center" id="Moneda' + rowCount + '" maxlength="10" required>';
+            cell6.innerHTML = '<input type="number" class="form-control text-center" id="MontoPesosAproximado' + rowCount + '" maxlength="10" required>';
+        }
+
+        function agregarFilaDocumentosExtras() {
+            var table = document.getElementById("dataTableDocumentosExtras");
+            var rowCount = table.rows.length;
+
+            var row = table.insertRow(rowCount);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3); // Corregir la posición a 3
+
+            cell1.innerHTML = rowCount;
+            cell2.innerHTML = '<input type="text" class="form-control text-center" id="DescripcionArchivoExtra' + rowCount + '" required>';
+            cell3.innerHTML = '<input type="file" class="form-control text-center " id="ArchivoExtra' + rowCount + '" required>';
+            var selectOptions = '<select class="form-select" name="ModoEntregaArchivoExtra' + rowCount + '" id="ModoEntregaArchivoExtra' + rowCount + '" required>' +
+                '<option selected disabled value=""></option>' +
+                '<option value="Original">ORIGINAL</option>' +
+                '<option value="Copia">COPIA</option>' +
+                '<option value="Electronico">ELECTRONICO</option>' +
+                '</select>';
+
+            cell4.innerHTML = selectOptions;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

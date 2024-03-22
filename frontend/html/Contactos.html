@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLICITUD | CONTACTOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="container text-center">
+        <h2 style="display: inline;">CONTACTOS</h2>
+        <h6 style="display: inline; margin-left: 0.5rem;"> (Máximo 3)</h6>
+        <hr>
+        <form action="http://localhost:3000/guardar-contactos" method="post" autocomplete="off" class="needs-validation"
+            novalidate>
+            <div id="contactosContainer">
+
+                <div class="row mb-3 align-items-end contactoContainer">
+                    <h4>DEL CONTACTO:</h4>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">NOMBRE:</label>
+                            <input type="text" class="form-control" name="NombreContacto1" id="NombreContacto1"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">DIRECCIÓN:</label>
+                            <input type="text" class="form-control" name="DireccionContacto1" id="DireccionContacto1"
+                                maxlength="10" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">TELÉFONO FIJO:</label>
+                            <input type="text" class="form-control" name="TelefonoContacto1" id="TelefonoContacto1"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                maxlength="10"
+                                onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                                pattern="[0-9]*" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">NÚMERO DE CELULAR:</label>
+                            <input type="text" class="form-control" name="CelularContacto1" id="CelularContacto1"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                maxlength="10"
+                                onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
+                                pattern="[0-9]*" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">PUESTO:</label>
+                            <input type="text" class="form-control" name="PuestoContacto1" id="PuestoContacto1"
+                                maxlength="10">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">CORREO ELECTRÓNICO PRINCIPAL:</label>
+                            <input type="email" class="form-control" name="EmailContacto1" id="EmailContacto1"
+                                oninput="validarCorreoElectronicoContacto(this)" required>
+                            <span id="resultadoContacto1" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">CORREO ELECTRÓNICO ADICIONAL:</label>
+                            <input type="email" class="form-control" name="EmailContactoAdicional1"
+                                id="EmailContactoAdicional1" oninput="validarCorreoElectronicoContacto(this)">
+                            <span id="resultadoContactoAdicional1" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="mb-3">
+                            <label class="form-label">OBSERVACIONES ADICIONALES:</label>
+                            <textarea name="ObservacionesContacto1" id="ObservacionesContacto1" rows="5"
+                                class="form-control" maxlength="200"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+           <!-- Contenedor de los botones -->
+    <div class="d-flex justify-content-center align-items-center mb-3">
+        <button type="button" onclick="agregarContacto()" class="btn btn-primary" id="btnAgregarContacto">+</button>
+    </div>
+
+            <h2>VARIABLES DE RIESGO</h2>
+            <hr>
+            <div class="row mb-3 align-items-end">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapseOne">
+                                        MONTO DE LA DEUDA
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <table class="table table-hover text-center" id="dataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">CATEGORIAS DE PRODUCTOS Y/O SERVICIOS</th>
+                                                    <th scope="col">MONTO ($)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td><input type="text" class="form-control text-center"
+                                                            placeholder="ADEUDO 1" id="DescripcionAdeudo1"
+                                                            name="descripcionAdeudo1">
+                                                    </td>
+                                                    <td><input type="number" class="form-control text-center montoInput"
+                                                            placeholder="MONTO 1" id="adeudoMonto1" name="adeudoMonto1"
+                                                            onkeyup="calcularTotal()"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <button type="button" class="btn btn-primary btn-lg" id="agregarBtn"
+                                            onclick="agregarFila()">+</button>
+
+                                        <div class="mt-3">
+                                            <label>Saldo Total Actualizado: $</label>
+                                            <span id="total"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <br>
+
+                            <!-- BOTON -->
+                            <div class="row mb-3">
+                                <div class="col-md-3 offset-md-10 justify-content-end">
+                                    <button id="Registrar" type="submit"
+                                        class="btn btn-primary btn-lg">Registrar</button>
+                                </div>
+                            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+               var contadorContactos = 1; // Contador para identificar los contactos
+
+               function agregarContacto() {
+    // Verifica si se ha alcanzado el límite de contactos
+    if (contadorContactos < 3) {
+        // Clona el primer elemento con la clase "contactoContainer"
+        var nuevoContacto = document.querySelector(".contactoContainer").cloneNode(true);
+
+        // Incrementa el contador de contactos
+        contadorContactos++;
+
+        // Actualiza el texto del título del nuevo contacto
+        nuevoContacto.querySelector("h4").textContent = "DEL CONTACTO ADICIONAL " + contadorContactos + ":";
+
+        // Recorre los elementos de entrada y textarea en el nuevo contacto y actualiza sus IDs y Names
+        nuevoContacto.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(function (input) {
+            var fieldName = input.getAttribute("name");
+            var fieldID = input.getAttribute("id");
+
+            // Extrae el número de contacto del ID actual
+            var currentContactNumber = fieldID.match(/\d+/);
+
+            // Reemplaza el número de contacto anterior por el nuevo
+            var newFieldID = fieldID.replace(currentContactNumber, contadorContactos);
+            var newFieldName = fieldName.replace(currentContactNumber, contadorContactos);
+
+            // Actualiza el ID y el Name del campo
+            input.setAttribute("id", newFieldID);
+            input.setAttribute("name", newFieldName);
+            input.value = ""; // Limpia el valor
+            input.classList.remove("is-invalid");
+        });
+
+        // Agrega el botón de eliminar
+var botonEliminar = document.createElement("button");
+botonEliminar.textContent = "-";
+botonEliminar.className = "col-md- d-flex justify-content-center btn btn-danger"; // Agrega la clase "botonEliminar"
+botonEliminar.onclick = function() {
+    eliminarContacto(nuevoContacto);
+};
+nuevoContacto.appendChild(botonEliminar);
+
+
+
+        // Agrega el nuevo contacto al contenedor
+        document.getElementById("contactosContainer").appendChild(nuevoContacto);
+
+        // Asociar eventos oninput con la función de validación para los nuevos campos de correo electrónico
+        nuevoContacto.querySelectorAll('input[type="email"]').forEach(function (input) {
+            input.setAttribute("oninput", "validarCorreoElectronicoContacto(this)");
+        });
+
+        // Deshabilita el botón si se alcanza el límite de contactos
+        if (contadorContactos === 3) {
+            document.getElementById("btnAgregarContacto").disabled = true;
+        }
+    }
+}
+
+
+function eliminarContacto(contacto) {
+    // Elimina el contacto del DOM
+    contacto.parentNode.removeChild(contacto);
+
+    // Disminuye el contador de contactos
+    contadorContactos--;
+
+    // Habilita el botón de agregar
+    document.getElementById("btnAgregarContacto").disabled = false;
+}
+
+        var contador = 1;
+
+        function agregarFila() {
+            if (contador < 10) {
+                contador++;
+
+                var nuevaFila = `
+                                <tr>
+                                    <th scope="row">${contador}</th>
+                                    <td><input type="text" class="form-control text-center" placeholder="ADEUDO ${contador}" id="descripcionAdeudo${contador}" required></td>
+                                    <td><input type="number" class="form-control text-center montoInput" placeholder="MONTO ${contador}" id="adeudoMonto${contador}" onkeyup="calcularTotal()" required></td>
+                                </tr>
+                            `;
+
+                // Agregar la nueva fila al final de la tabla
+                $("#dataTable tbody").append(nuevaFila);
+
+                // Calcular y mostrar el total
+                calcularTotal();
+            } else {
+                alert("Solo se permiten hasta 10 filas.");
+                document.getElementById("agregarBtn").disabled = true;
+            }
+        }
+
+        function calcularTotal() {
+            var total = 0;
+
+            for (var i = 1; i <= contador; i++) {
+                var monto = parseFloat($("#adeudoMonto" + i).val()) || 0;
+                total += monto;
+            }
+
+            // Asegura que el total se muestre correctamente
+            $("#total").text(total.toFixed(2));
+        }
+    </script>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
