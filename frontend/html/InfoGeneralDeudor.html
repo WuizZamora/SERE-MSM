@@ -27,7 +27,7 @@
                             required>
                     </div>
                 </div>
-
+                
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label"># DE CLIENTE HIJO: </label>
@@ -76,7 +76,7 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">RAZÓN SOCIAL</label>
-                            <input type="text" class="form-control" name="RazonSocial" id="RazonSocial" maxlength="10">
+                            <input type="text" class="form-control" name="RazonSocial" id="RazonSocial" maxlength="150">
                         </div>
                     </div>
 
@@ -84,7 +84,7 @@
                         <div class="mb-3">
                             <label class="form-label">DIRECCIÓN COMERCIAL:</label>
                             <input type="text" class="form-control" name="DireccionComercial" id="DireccionComercial"
-                                maxlength="10">
+                                maxlength="150">
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
                         <div class="mb-3">
                             <label class="form-label">¿Cuál?</label>
                             <input type="text" class="form-control" name="PoderNotarialDetalle"
-                                id="PoderNotarialDetalle" maxlength="10">
+                                id="PoderNotarialDetalle" maxlength="150">
                         </div>
                     </div>
 
@@ -111,7 +111,7 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO FISCAL:</label>
                             <input type="text" class="form-control" name="DomicilioFiscalPM" id="DomicilioFiscalPM"
-                                maxlength="10">
+                                maxlength="150">
                         </div>
                     </div>
 
@@ -123,14 +123,14 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO FISCAL:</label>
                             <input type="text" class="form-control" name="DomicilioFiscalPFAE" id="DomicilioFiscalPFAE"
-                                maxlength="10">
+                                maxlength="150">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO PERSONAL:</label>
                             <input type="text" class="form-control" name="DomicilioPersonalPFAE"
-                                id="DomicilioPersonalPFAE" maxlength="10">
+                                id="DomicilioPersonalPFAE" maxlength="150">
                         </div>
                     </div>
 
@@ -138,7 +138,7 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO LABORAL:</label>
                             <input type="text" class="form-control" name="DomicilioLaboralPFAE"
-                                id="DomicilioLaboralPFAE" maxlength="10">
+                                id="DomicilioLaboralPFAE" maxlength="150">
                         </div>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO PERSONAL:</label>
                             <input type="text" class="form-control" name="DomicilioPersonalPF" id="DomicilioPersonalPF"
-                                maxlength="10">
+                                maxlength="150">
                         </div>
                     </div>
 
@@ -157,7 +157,7 @@
                         <div class="mb-3">
                             <label class="form-label">DOMICILIO LABORAL:</label>
                             <input type="text" class="form-control" name="DomicilioLaboralPF" id="DomicilioLaboralPF"
-                                maxlength="10">
+                                maxlength="150">
                         </div>
                     </div>
                 </div>
@@ -166,14 +166,14 @@
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">R.F.C: </label>
-                        <input type="text" class="form-control" name="Rfc" id="Rfc" maxlength="10" required>
+                        <input type="text" class="form-control" name="Rfc" id="Rfc" maxlength="13" required>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">CURP: </label>
-                        <input type="text" class="form-control" name="Curp" id="Curp" maxlength="10" required>
+                        <input type="text" class="form-control" name="Curp" id="Curp" maxlength="18" required>
                     </div>
                 </div>
 
@@ -196,15 +196,15 @@
                     <div class="mb-3">
                         <label class="form-label">DOMICILIO DE ENTREGA / SERVICIO:</label>
                         <input type="text" class="form-control" name="DomicilioEntrega" id="DomicilioEntrega"
-                            maxlength="10">
+                            maxlength="150">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">DOMICILIO ALTERNATIVO:</label>
-                        <input type="text" class="form-control" name="DomiciliosAlternativo" id="DomiciliosAlternativo"
-                            maxlength="10">
+                        <input type="text" class="form-control" name="DomicilioAlternativo" id="DomiciliosAlternativo"
+                            maxlength="150">
                     </div>
                 </div>
 
@@ -212,7 +212,7 @@
                     <div class="mb-3">
                         <label class="form-label">¿VÍA PRINCIPAL DE CONTACTO?:</label>
                         <input type="text" class="form-control" name="ViaPrincipalDeContacto"
-                            id="ViaPrincipalDeContacto" maxlength="10"
+                            id="ViaPrincipalDeContacto" maxlength="150"
                             placeholder="Correo, teléfono, visita domiciliaria " required>
                     </div>
                 </div>
@@ -239,46 +239,32 @@
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">NÚMERO DE CELULAR:</label>
-                        <input type="text" class="form-control" name="NumeroCelular" id="NumeroCelular"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            maxlength="10"
-                            onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
-                            onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                            pattern="[0-9]*" required>
+                        <input type="text" class="form-control" name="NumeroCelular" id="NumeroCelular" required>
+                        <small id="avisoCelular" class="form-text text-danger"></small>
                     </div>
                 </div>
-
+                
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">TELÉFONO FIJO #1:</label>
-                        <input type="text" class="form-control" name="TelefonoFijoUno" id="TelefonoFijoUno"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            maxlength="10"
-                            onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
-                            onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                            pattern="[0-9]*" required>
+                        <input type="text" class="form-control" name="TelefonoFijoUno" id="TelefonoFijoUno" required>
+                        <small id="avisoFijoUno" class="form-text text-danger"></small>
                     </div>
                 </div>
-
+                
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">TELÉFONO FIJO #2:</label>
-                        <input type="text" class="form-control" name="TelefonoFijoDos" id="TelefonoFijoDos"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            maxlength="10"
-                            onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
-                            onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                            pattern="[0-9]*">
+                        <input type="text" class="form-control" name="TelefonoFijoDos" id="TelefonoFijoDos">
+                        <small id="avisoFijoDos" class="form-text text-danger"></small>
                     </div>
-                </div>
-
+                </div>                
 
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">CORREO ELECTRÓNICO:</label>
-                        <input type="email" class="form-control" name="Email" id="Email"
-                            oninput="validarCorreoElectronico()">
-                        <span id="resultado" class="text-danger"></span>
+                        <input type="email" class="form-control" name="Email" id="Email">
+                        <small id="resultado" class="form-text text-danger"></small>
                     </div>
                 </div>
 

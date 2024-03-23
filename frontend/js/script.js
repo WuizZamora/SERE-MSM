@@ -23,6 +23,70 @@
   );
 })();
 
+// Agregamos un listener para el evento "input" en los campos de entrada
+document.getElementById("NoClientePadre").addEventListener("input", function () {
+  // Removemos cualquier caracter que no sea un número
+  this.value = this.value.replace(/[^\d]/, '');
+});
+
+document.getElementById("NoClienteHijo").addEventListener("input", function () {
+  // Removemos cualquier caracter que no sea un número
+  this.value = this.value.replace(/[^\d]/, '');
+});
+
+ // Función para validar y limitar la entrada a números y 10 dígitos
+ function validarNumerosDiezDigitos(input, avisoId) {
+  input.value = input.value.replace(/[^\d]/, ''); // Remover caracteres no numéricos
+  const aviso = document.getElementById(avisoId);
+  if (input.value.length < 10 && input.value.length > 0) {
+      aviso.textContent = "El número debe tener 10 dígitos";
+  } else {
+      aviso.textContent = "";
+  }
+  if (input.value.length > 10) {
+      input.value = input.value.slice(0, 10); // Limitar la longitud a 10 dígitos
+  }
+}
+
+// Agregar listeners para los eventos "input" en los campos
+document.getElementById("NumeroCelular").addEventListener("input", function() {
+  validarNumerosDiezDigitos(this, "avisoCelular");
+});
+
+document.getElementById("TelefonoFijoUno").addEventListener("input", function() {
+  validarNumerosDiezDigitos(this, "avisoFijoUno");
+});
+
+document.getElementById("TelefonoFijoDos").addEventListener("input", function() {
+  validarNumerosDiezDigitos(this, "avisoFijoDos");
+});
+//VALIDAR EMAIL
+document.getElementById("Email").addEventListener("input", function() {
+  if (this.value.trim() !== "") { // Solo validar si hay una entrada
+    validarCorreoElectronico();
+  } else {
+    clearEmailValidation();
+  }
+});
+
+function validarCorreoElectronico() {
+  var email = document.getElementById("Email").value;
+  var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  let resultado = document.getElementById("resultado");
+  if (regex.test(email)) {
+    document.getElementById("Email").classList.remove("is-invalid");
+    resultado.textContent = "";
+  } else {
+    document.getElementById("Email").classList.add("is-invalid");
+    resultado.textContent = "El correo electrónico ingresado no es válido. Verifica el formato.";
+  }
+}
+
+function clearEmailValidation() {
+  document.getElementById("Email").classList.remove("is-invalid");
+  document.getElementById("resultado").textContent = "";
+}
+
 function mostrarCampoDetalle() {
   var seleccion = document.getElementById("PoderNotarial").value;
   var campoAdicional = document.getElementById("campoDetalle");
@@ -108,35 +172,6 @@ function mostrarCampoFechaValidacion() {
   }
 }
 
-function validarCorreoElectronico() {
-  var email = document.getElementById("Email").value;
-  var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  let resultado = document.getElementById("resultado");
-  if (regex.test(email)) {
-    document.getElementById("Email").classList.remove("invalid");
-    resultado.textContent = " ";
-  } else {
-    document.getElementById("Email").classList.add("invalid");
-    resultado.textContent =
-      "El EMAIL ingresado no es válido. Verifica el formato.";
-    resultado.classList.add("text-danger");
-  }
-}
-
-function validarCorreoElectronicoContacto(input) {
-  var email = input.value;
-  var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  var resultado = input.nextElementSibling; // Obtiene el elemento hermano siguiente para mostrar el mensaje de validación
-
-  if (regex.test(email)) {
-      input.classList.remove("is-invalid");
-      resultado.textContent = "";
-  } else {
-      input.classList.add("is-invalid");
-      resultado.textContent = "El correo electrónico ingresado no es válido. Verifica el formato.";
-      resultado.classList.add("text-danger");
-  }
-}
 
 document.addEventListener("DOMContentLoaded", function () {
   var tipoGarantiaSelect = document.getElementById("TipoGarantia");

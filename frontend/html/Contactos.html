@@ -25,7 +25,7 @@
                         <div class="mb-3">
                             <label class="form-label">NOMBRE:</label>
                             <input type="text" class="form-control" name="NombreContacto1" id="NombreContacto1"
-                                required>
+                                maxlength="150" required>
                         </div>
                     </div>
 
@@ -33,19 +33,7 @@
                         <div class="mb-3">
                             <label class="form-label">DIRECCIÓN:</label>
                             <input type="text" class="form-control" name="DireccionContacto1" id="DireccionContacto1"
-                                maxlength="10" required>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="mb-3">
-                            <label class="form-label">TELÉFONO FIJO:</label>
-                            <input type="text" class="form-control" name="TelefonoContacto1" id="TelefonoContacto1"
-                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                maxlength="10"
-                                onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
-                                onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                                pattern="[0-9]*" required>
+                                maxlength="150" required>
                         </div>
                     </div>
 
@@ -53,11 +41,18 @@
                         <div class="mb-3">
                             <label class="form-label">NÚMERO DE CELULAR:</label>
                             <input type="text" class="form-control" name="CelularContacto1" id="CelularContacto1"
-                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                maxlength="10"
-                                onkeydown="return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 8 || event.keyCode == 46;"
-                                onkeypress="return event.charCode >= 48 && event.charCode <= 57;" inputmode="numeric"
-                                pattern="[0-9]*" required>
+                                required>
+                            <small id="avisoCelular1" class="form-text text-danger"></small>
+                            <!-- Asegúrate de que el ID sea "avisoCelular1" -->
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">TELÉFONO FIJO:</label>
+                            <input type="text" class="form-control" name="TelefonoContacto1" id="TelefonoContacto1"
+                                required>
+                            <small id="avisoTelefono1" class="form-text text-danger"></small>
+                            <!-- Asegúrate de que el ID sea "avisoTelefono1" -->
                         </div>
                     </div>
 
@@ -72,18 +67,16 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">CORREO ELECTRÓNICO PRINCIPAL:</label>
-                            <input type="email" class="form-control" name="EmailContacto1" id="EmailContacto1"
-                                oninput="validarCorreoElectronicoContacto(this)" required>
-                            <span id="resultadoContacto1" class="text-danger"></span>
+                            <input type="email" class="form-control" name="EmailContacto1" id="EmailContacto1" required>
+                            <div id="EmailContacto1_resultado" class="invalid-feedback"></div>
                         </div>
                     </div>
-
+        
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">CORREO ELECTRÓNICO ADICIONAL:</label>
-                            <input type="email" class="form-control" name="EmailContactoAdicional1"
-                                id="EmailContactoAdicional1" oninput="validarCorreoElectronicoContacto(this)">
-                            <span id="resultadoContactoAdicional1" class="text-danger"></span>
+                            <input type="email" class="form-control" name="EmailContactoAdicional1" id="EmailContactoAdicional1">
+                            <div id="EmailContactoAdicional1_resultado" class="invalid-feedback"></div>
                         </div>
                     </div>
 
@@ -97,10 +90,11 @@
 
                 </div>
             </div>
-           <!-- Contenedor de los botones -->
-    <div class="d-flex justify-content-center align-items-center mb-3">
-        <button type="button" onclick="agregarContacto()" class="btn btn-primary" id="btnAgregarContacto">+</button>
-    </div>
+            <!-- Contenedor de los botones -->
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <button type="button" onclick="agregarContacto()" class="btn btn-primary"
+                    id="btnAgregarContacto">+</button>
+            </div>
 
             <h2>VARIABLES DE RIESGO</h2>
             <hr>
@@ -167,76 +161,134 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-               var contadorContactos = 1; // Contador para identificar los contactos
-
-               function agregarContacto() {
-    // Verifica si se ha alcanzado el límite de contactos
-    if (contadorContactos < 3) {
-        // Clona el primer elemento con la clase "contactoContainer"
-        var nuevoContacto = document.querySelector(".contactoContainer").cloneNode(true);
-
-        // Incrementa el contador de contactos
-        contadorContactos++;
-
-        // Actualiza el texto del título del nuevo contacto
-        nuevoContacto.querySelector("h4").textContent = "DEL CONTACTO ADICIONAL " + contadorContactos + ":";
-
-        // Recorre los elementos de entrada y textarea en el nuevo contacto y actualiza sus IDs y Names
-        nuevoContacto.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(function (input) {
-            var fieldName = input.getAttribute("name");
-            var fieldID = input.getAttribute("id");
-
-            // Extrae el número de contacto del ID actual
-            var currentContactNumber = fieldID.match(/\d+/);
-
-            // Reemplaza el número de contacto anterior por el nuevo
-            var newFieldID = fieldID.replace(currentContactNumber, contadorContactos);
-            var newFieldName = fieldName.replace(currentContactNumber, contadorContactos);
-
-            // Actualiza el ID y el Name del campo
-            input.setAttribute("id", newFieldID);
-            input.setAttribute("name", newFieldName);
-            input.value = ""; // Limpia el valor
-            input.classList.remove("is-invalid");
-        });
-
-        // Agrega el botón de eliminar
-var botonEliminar = document.createElement("button");
-botonEliminar.textContent = "-";
-botonEliminar.className = "col-md- d-flex justify-content-center btn btn-danger"; // Agrega la clase "botonEliminar"
-botonEliminar.onclick = function() {
-    eliminarContacto(nuevoContacto);
-};
-nuevoContacto.appendChild(botonEliminar);
-
-
-
-        // Agrega el nuevo contacto al contenedor
-        document.getElementById("contactosContainer").appendChild(nuevoContacto);
-
-        // Asociar eventos oninput con la función de validación para los nuevos campos de correo electrónico
-        nuevoContacto.querySelectorAll('input[type="email"]').forEach(function (input) {
-            input.setAttribute("oninput", "validarCorreoElectronicoContacto(this)");
-        });
-
-        // Deshabilita el botón si se alcanza el límite de contactos
-        if (contadorContactos === 3) {
-            document.getElementById("btnAgregarContacto").disabled = true;
+        // Función para validar y limitar la entrada a números y 10 dígitos
+        function validarNumerosDiezDigitos(input, avisoId) {
+            input.value = input.value.replace(/[^\d]/g, ''); // Remover caracteres no numéricos
+            const aviso = document.getElementById(avisoId);
+            if (input.value.length !== 10 && input.value.length > 0) {
+                aviso.textContent = "El número debe tener 10 dígitos";
+            } else {
+                aviso.textContent = "";
+            }
+            if (input.value.length > 10) {
+                input.value = input.value.slice(0, 10); // Limitar la longitud a 10 dígitos
+            }
         }
-    }
-}
+
+        // Agregar listeners para los eventos "input" en los campos
+        document.getElementById("CelularContacto1").addEventListener("input", function () {
+            validarNumerosDiezDigitos(this, "avisoCelular1");
+        });
+
+        document.getElementById("TelefonoContacto1").addEventListener("input", function () {
+            validarNumerosDiezDigitos(this, "avisoTelefono1");
+        });
 
 
-function eliminarContacto(contacto) {
-    // Elimina el contacto del DOM
-    contacto.parentNode.removeChild(contacto);
+        document.getElementById("EmailContacto1").addEventListener("input", function() {
+            if (this.value.trim() !== "") { // Solo validar si hay una entrada
+                validarCorreoElectronico("EmailContacto1");
+            } else {
+                clearEmailValidation("EmailContacto1");
+            }
+        });
+    
+        document.getElementById("EmailContactoAdicional1").addEventListener("input", function() {
+            if (this.value.trim() !== "") { // Solo validar si hay una entrada
+                validarCorreoElectronico("EmailContactoAdicional1");
+            } else {
+                clearEmailValidation("EmailContactoAdicional1");
+            }
+        });
+    
+        function validarCorreoElectronico(id) {
+            var email = document.getElementById(id).value;
+            var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            let resultado = document.getElementById(id + "_resultado");
+            if (regex.test(email)) {
+                document.getElementById(id).classList.remove("is-invalid");
+                resultado.textContent = "";
+            } else {
+                document.getElementById(id).classList.add("is-invalid");
+                resultado.textContent = "El correo electrónico ingresado no es válido. Verifica el formato.";
+            }
+        }
+    
+        function clearEmailValidation(id) {
+            document.getElementById(id).classList.remove("is-invalid");
+            document.getElementById(id + "_resultado").textContent = "";
+        }
 
-    // Disminuye el contador de contactos
-    contadorContactos--;
+        var contadorContactos = 1; // Contador para identificar los contactos
 
-    // Habilita el botón de agregar
-    document.getElementById("btnAgregarContacto").disabled = false;
-}
+        function agregarContacto() {
+            // Verifica si se ha alcanzado el límite de contactos
+            if (contadorContactos < 3) {
+                // Clona el primer elemento con la clase "contactoContainer"
+                var nuevoContacto = document.querySelector(".contactoContainer").cloneNode(true);
+
+                // Incrementa el contador de contactos
+                contadorContactos++;
+
+                // Actualiza el texto del título del nuevo contacto
+                nuevoContacto.querySelector("h4").textContent = "DEL CONTACTO ADICIONAL " + contadorContactos + ":";
+
+                // Recorre los elementos de entrada y textarea en el nuevo contacto y actualiza sus IDs y Names
+                nuevoContacto.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(function (input) {
+                    var fieldName = input.getAttribute("name");
+                    var fieldID = input.getAttribute("id");
+
+                    // Extrae el número de contacto del ID actual
+                    var currentContactNumber = fieldID.match(/\d+/);
+
+                    // Reemplaza el número de contacto anterior por el nuevo
+                    var newFieldID = fieldID.replace(currentContactNumber, contadorContactos);
+                    var newFieldName = fieldName.replace(currentContactNumber, contadorContactos);
+
+                    // Actualiza el ID y el Name del campo
+                    input.setAttribute("id", newFieldID);
+                    input.setAttribute("name", newFieldName);
+                    input.value = ""; // Limpia el valor
+                    input.classList.remove("is-invalid");
+                });
+
+                // Agrega el botón de eliminar
+                var botonEliminar = document.createElement("button");
+                botonEliminar.textContent = "-";
+                botonEliminar.className = "col-md- d-flex justify-content-center btn btn-danger"; // Agrega la clase "botonEliminar"
+                botonEliminar.onclick = function () {
+                    eliminarContacto(nuevoContacto);
+                };
+                nuevoContacto.appendChild(botonEliminar);
+
+
+
+                // Agrega el nuevo contacto al contenedor
+                document.getElementById("contactosContainer").appendChild(nuevoContacto);
+
+                // Asociar eventos oninput con la función de validación para los nuevos campos de correo electrónico
+                nuevoContacto.querySelectorAll('input[type="email"]').forEach(function (input) {
+                    input.setAttribute("oninput", "validarCorreoElectronicoContacto(this)");
+                });
+
+                // Deshabilita el botón si se alcanza el límite de contactos
+                if (contadorContactos === 3) {
+                    document.getElementById("btnAgregarContacto").disabled = true;
+                }
+            }
+        }
+
+
+        function eliminarContacto(contacto) {
+            // Elimina el contacto del DOM
+            contacto.parentNode.removeChild(contacto);
+
+            // Disminuye el contador de contactos
+            contadorContactos--;
+
+            // Habilita el botón de agregar
+            document.getElementById("btnAgregarContacto").disabled = false;
+        }
 
         var contador = 1;
 

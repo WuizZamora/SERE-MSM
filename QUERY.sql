@@ -17,8 +17,8 @@ select * from Usuarios;
 -- TABLA INFORMACION GENERAL DE LA CUENTA --
 CREATE TABLE InfGeneralCuenta (
 	IDCuenta INT AUTO_INCREMENT PRIMARY KEY,
-    NoClientePadre int,
-    NoClienteHijo int,
+    NoClientePadre varchar(255),
+    NoClienteHijo varchar(255),
     TipoDeCaso varchar(255),
     FechaDeAsignacion date,
     IDUsuario int,
