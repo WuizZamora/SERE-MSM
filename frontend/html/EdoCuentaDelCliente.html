@@ -7,11 +7,12 @@
     <title>ESTADO DE CUENTA CLIENTE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style-formulario.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 text-center">
         <div class="table-responsive">
             <table class="table table-hover text-center" id="dataTable">
                 <thead>
@@ -19,7 +20,7 @@
                         <th scope="col">#</th>
                         <th scope="col">TIPO DE DOCUMENTO</th>
                         <th scope="col">ARCHIVO SOPORTE</th>
-                        <th scope="col">FECHA DE FACTURA</th>
+                        <th scope="col">FECHA DE APERTURA</th>
                         <th scope="col">FECHA DE VENCIMIENTO</th>
                         <th scope="col">IMPORTE TOTAL ($)</th>
                         <th scope="col">IMPORTE RESTANTE ($)</th>
@@ -37,11 +38,23 @@
                                 <option value="ticket">Ticket</option>
                             </select>
                         </td>
-                        <td><input type="file" class="form-control text-center" id="ArchivoSoporte1" required></td>
+                        <td>
+                            <label for="ArchivoSoporte1" class="file-input-label">
+                                <input type="file" class="form-control text-center visually-hidden" id="ArchivoSoporte1"
+                                    required onchange="mostrarPalomita(this)">
+                                <span class="file-icon file-upload-icon" id="clipIcon1"><i
+                                        class="material-icons">attach_file</i></span>
+                                <span class="file-icon file-upload-icon" id="palomitaIcon1" style="display: none;"><i
+                                        class="material-icons">check_circle</i></span>
+                            </label>
+                        </td>
                         <td><input type="date" class="form-control text-center" id="FechaSoporte1" required></td>
-                        <td><input type="date" class="form-control text-center" id="FechaSoporteVencimiento1" required></td>
-                        <td><input type="number" class="form-control text-center" id="ImporteTotal1" required></td>
-                        <td><input type="number" class="form-control text-center" id="ImporteRestante1" required></td>
+                        <td><input type="date" class="form-control text-center" id="FechaSoporteVencimiento1" required>
+                        </td>
+                        <td><input type="number" class="form-control text-center" id="ImporteTotal1" inputmode="numeric"
+                                min="0" required></td>
+                        <td><input type="number" class="form-control text-center" id="ImporteRestante1"
+                                inputmode="numeric" min="0" required></td>
                         <td><input type="text" class="form-control text-center" id="PromedioPonderado1" value="##"
                                 readonly required style="display: none;"></td>
                     </tr>
@@ -49,6 +62,8 @@
             </table>
         </div>
         <button class="btn btn-primary" id="agregarBtn" onclick="agregarFila()">+</button>
+        <button class="btn btn-danger" id="eliminarBtn" onclick="eliminarFila()">-</button>
+        <br>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -70,12 +85,23 @@
 
             cell1.innerHTML = rowCount;
             cell2.innerHTML = '<select class="form-select text-center" id="TipoDocumento' + rowCount + '" onchange="mostrarPromedio(' + rowCount + ')"> <option selected disabled value=""></option> <option value="factura">Factura</option><option value="contrato">Contrato</option><option value="ticket">Ticket</option></select>';
-            cell3.innerHTML = '<input type="file" class="form-control text-center" id="ArchivoSoporte' + rowCount + '" required>';
+            cell3.innerHTML = '<label for="ArchivoSoporte' + rowCount + '" class="file-input-label"><input type="file" class="form-control text-center visually-hidden" id="ArchivoSoporte' + rowCount + '" required onchange="mostrarPalomita(this)"><span class="file-icon file-upload-icon" id="clipIcon' + rowCount + '"><i class="material-icons">attach_file</i></span><span class="file-icon file-upload-icon" id="palomitaIcon' + rowCount + '" style="display: none;"><i class="material-icons">check_circle</i></span></label>';
             cell4.innerHTML = '<input type="date" class="form-control text-center" id="FechaFactura' + rowCount + '" required>';
             cell5.innerHTML = '<input type="date" class="form-control text-center" id="FechaVencimiento' + rowCount + '" required>';
-            cell6.innerHTML = '<input type="number" class="form-control text-center" id="ImporteTotalFactura' + rowCount + '" required>';
-            cell7.innerHTML = '<input type="number" class="form-control text-center" id="ImporteRestanteFactura' + rowCount + '" required>';
+            cell6.innerHTML = '<input type="number" class="form-control text-center" id="ImporteTotalFactura' + rowCount + '" min="0" required>';
+            cell7.innerHTML = '<input type="number" class="form-control text-center" id="ImporteRestanteFactura' + rowCount + '" min="0" required>';
             cell8.innerHTML = '<input type="text" class="form-control text-center" id="PromedioPonderado' + rowCount + '" value="##" readonly required" style="display: none;">';
+        }
+
+        function eliminarFila() {
+            var table = document.getElementById("dataTable");
+            var rowCount = table.rows.length;
+
+            if (rowCount > 2) { // Se puede cambiar a 1 si quieres mantener solo la fila original
+                table.deleteRow(rowCount - 1);
+            } else {
+                // alert("No se pueden eliminar más filas.");
+            }
         }
 
         function mostrarPromedio(rowCount) {
@@ -86,6 +112,21 @@
                 promedioPonderado.style.display = "";
             } else {
                 promedioPonderado.style.display = "none";
+            }
+        }
+
+        function mostrarPalomita(input) {
+            var fileInput = input;
+            var rowId = input.id.replace("ArchivoSoporte", "");
+            var palomitaIcon = document.getElementById('palomitaIcon' + rowId);
+            var clipIcon = document.getElementById('clipIcon' + rowId);
+
+            if (fileInput.files.length > 0) {
+                clipIcon.style.display = 'none';
+                palomitaIcon.style.display = 'inline-block';
+            } else {
+                clipIcon.style.display = 'inline-block';
+                palomitaIcon.style.display = 'none';
             }
         }
 

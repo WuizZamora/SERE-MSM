@@ -23,7 +23,7 @@
                     <h4>DEL CONTACTO:</h4>
                     <div class="col-md-3">
                         <div class="mb-3">
-                            <label class="form-label">NOMBRE:</label>
+                            <label class="form-label">NOMBRE: *</label>
                             <input type="text" class="form-control" name="NombreContacto1" id="NombreContacto1"
                                 maxlength="150" required>
                         </div>
@@ -31,7 +31,7 @@
 
                     <div class="col-md-3">
                         <div class="mb-3">
-                            <label class="form-label">DIRECCIÓN:</label>
+                            <label class="form-label">DIRECCIÓN: *</label>
                             <input type="text" class="form-control" name="DireccionContacto1" id="DireccionContacto1"
                                 maxlength="150" required>
                         </div>
@@ -39,7 +39,7 @@
 
                     <div class="col-md-3">
                         <div class="mb-3">
-                            <label class="form-label">NÚMERO DE CELULAR:</label>
+                            <label class="form-label">NÚMERO DE CELULAR: *</label>
                             <input type="text" class="form-control" name="CelularContacto1" id="CelularContacto1"
                                 required>
                             <small id="avisoCelular1" class="form-text text-danger"></small>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="mb-3">
-                            <label class="form-label">TELÉFONO FIJO:</label>
+                            <label class="form-label">TELÉFONO FIJO: *</label>
                             <input type="text" class="form-control" name="TelefonoContacto1" id="TelefonoContacto1"
                                 required>
                             <small id="avisoTelefono1" class="form-text text-danger"></small>
@@ -66,17 +66,19 @@
 
                     <div class="col-md-3">
                         <div class="mb-3">
-                            <label class="form-label">CORREO ELECTRÓNICO PRINCIPAL:</label>
-                            <input type="email" class="form-control" name="EmailContacto1" id="EmailContacto1" required>
-                            <div id="EmailContacto1_resultado" class="invalid-feedback"></div>
+                            <label class="form-label">CORREO ELECTRÓNICO PRINCIPAL: *</label>
+                            <input type="email" class="form-control" name="EmailContacto1" id="EmailContacto1"
+                                required="">
+                            <div id="emailError1" class="form-text text-danger"></div>
                         </div>
                     </div>
-        
+
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label class="form-label">CORREO ELECTRÓNICO ADICIONAL:</label>
-                            <input type="email" class="form-control" name="EmailContactoAdicional1" id="EmailContactoAdicional1">
-                            <div id="EmailContactoAdicional1_resultado" class="invalid-feedback"></div>
+                            <input type="email" class="form-control" name="EmailContactoAdicional1"
+                                id="EmailContactoAdicional1">
+                            <div id="emailError2" class="form-text text-danger"></div>
                         </div>
                     </div>
 
@@ -90,11 +92,10 @@
 
                 </div>
             </div>
-            <!-- Contenedor de los botones -->
-            <div class="d-flex justify-content-center align-items-center mb-3">
-                <button type="button" onclick="agregarContacto()" class="btn btn-primary"
-                    id="btnAgregarContacto">+</button>
-            </div>
+
+            <button type="button" onclick="agregarContacto()" class="btn btn-primary" id="btnAgregarContacto">+</button>
+            <button type="button" onclick="eliminarUltimoContacto()" class="btn btn-danger mr-3"
+                id="btnEliminarContacto">-</button>
 
             <h2>VARIABLES DE RIESGO</h2>
             <hr>
@@ -137,6 +138,9 @@
 
                                         <button type="button" class="btn btn-primary btn-lg" id="agregarBtn"
                                             onclick="agregarFila()">+</button>
+                                        <button type="button" class="btn btn-danger btn-lg" id="eliminarBtn"
+                                            onclick="eliminarUltimaFila()">-</button>
+
 
                                         <div class="mt-3">
                                             <label>Saldo Total Actualizado: $</label>
@@ -144,15 +148,51 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> <br>
-
-                            <!-- BOTON -->
-                            <div class="row mb-3">
-                                <div class="col-md-3 offset-md-10 justify-content-end">
-                                    <button id="Registrar" type="submit"
-                                        class="btn btn-primary btn-lg">Registrar</button>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseTwo">
+                                        EDAD DE LA DEUDA SS1
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <a href="EdoCuentaDelCliente.html"
+                                            onclick="window.open(this.href,'_blank','width=1000,height=400'); return false;">
+                                            LLENAR ESTADO DE CUENTA DEL CLIENTE</a>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseThree">
+                                        HISTORIAL DE PAGOS DEL DEUDOR SS2
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <a href="formularioHistorialDePagos.html"
+                                            onclick="window.open(this.href,'_blank','width=1000,height=400'); return false;">HISTORIAL
+                                            DE PAGOS DEL DEUDOR (LIQUIDEZ)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <br>
+                        
+                        <div id="error-message" class="alert alert-danger d-none" role="alert">
+                            Por favor complete todos los campos marcados en rojo antes de enviar el formulario.
+                        </div>
+                        <!-- BOTON -->
+                        <div class="row mb-3">
+                            <div class="col-md-3 offset-md-10 justify-content-end">
+                                <button id="Registrar" type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                            </div>
+                        </div>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -185,42 +225,55 @@
         });
 
 
-        document.getElementById("EmailContacto1").addEventListener("input", function() {
-            if (this.value.trim() !== "") { // Solo validar si hay una entrada
-                validarCorreoElectronico("EmailContacto1");
+        function validateEmail(input, errorId) {
+            const email = input.value;
+            const emailError = input.parentNode.querySelector('.form-text.text-danger');
+
+            if (!email) {
+                input.setCustomValidity('');
+                emailError.textContent = '';
+            } else if (!isValidEmail(email)) {
+                input.setCustomValidity('Correo electrónico no válido');
+                emailError.textContent = 'Por favor, introduzca un correo electrónico válido.';
             } else {
-                clearEmailValidation("EmailContacto1");
-            }
-        });
-    
-        document.getElementById("EmailContactoAdicional1").addEventListener("input", function() {
-            if (this.value.trim() !== "") { // Solo validar si hay una entrada
-                validarCorreoElectronico("EmailContactoAdicional1");
-            } else {
-                clearEmailValidation("EmailContactoAdicional1");
-            }
-        });
-    
-        function validarCorreoElectronico(id) {
-            var email = document.getElementById(id).value;
-            var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            let resultado = document.getElementById(id + "_resultado");
-            if (regex.test(email)) {
-                document.getElementById(id).classList.remove("is-invalid");
-                resultado.textContent = "";
-            } else {
-                document.getElementById(id).classList.add("is-invalid");
-                resultado.textContent = "El correo electrónico ingresado no es válido. Verifica el formato.";
+                input.setCustomValidity('');
+                emailError.textContent = '';
             }
         }
-    
-        function clearEmailValidation(id) {
-            document.getElementById(id).classList.remove("is-invalid");
-            document.getElementById(id + "_resultado").textContent = "";
+
+        function isValidEmail(email) {
+            // Expresión regular para validar correo electrónico
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
         }
+
+        // Agregar la validación a los campos originales de correo electrónico
+        document.getElementById('EmailContacto1').addEventListener('input', function () {
+            validateEmail(this, 'emailError1');
+        });
+        document.getElementById('EmailContactoAdicional1').addEventListener('input', function () {
+            validateEmail(this, 'emailError2');
+        });
+
 
         var contadorContactos = 1; // Contador para identificar los contactos
 
+        // Función para validar y limitar la entrada a números y 10 dígitos en contactos duplicados
+        function validarNumerosDiezDigitosDuplicados(input, avisoId) {
+            input.value = input.value.replace(/[^\d]/g, ''); // Remover caracteres no numéricos
+            const aviso = document.getElementById(avisoId);
+            if (input.value.length < 10 && input.value.length > 0) { // Cambio aquí
+                aviso.textContent = "El número debe tener 10 dígitos";
+            } else {
+                aviso.textContent = "";
+            }
+            if (input.value.length > 10) {
+                input.value = input.value.slice(0, 10); // Limitar la longitud a 10 dígitos
+            }
+        }
+
+
+        // Función para agregar un nuevo contacto
         function agregarContacto() {
             // Verifica si se ha alcanzado el límite de contactos
             if (contadorContactos < 3) {
@@ -250,26 +303,47 @@
                     input.setAttribute("name", newFieldName);
                     input.value = ""; // Limpia el valor
                     input.classList.remove("is-invalid");
+
+                    // Elimina la validación del campo
+                    input.removeAttribute("oninput");
+
+                    // Asocia la validación al campo de correo electrónico clonado
+                    if (input.type === 'email') {
+                        input.setAttribute("oninput", "validateEmail(this, 'emailError" + contadorContactos + "')");
+                    }
+
+                    // Agrega un listener de evento "input" para la validación de números en el campo de número de teléfono celular
+                    if (input.id.startsWith("CelularContacto")) {
+                        input.addEventListener("input", function () {
+                            validarNumerosDiezDigitosDuplicados(this, "avisoCelular" + contadorContactos);
+                        });
+                    }
+
+                    // Agrega un listener de evento "input" para la validación de números en el campo de número de teléfono fijo
+                    if (input.id.startsWith("TelefonoContacto")) {
+                        input.addEventListener("input", function () {
+                            validarNumerosDiezDigitosDuplicados(this, "avisoTelefono" + contadorContactos);
+                        });
+                    }
                 });
 
-                // Agrega el botón de eliminar
-                var botonEliminar = document.createElement("button");
-                botonEliminar.textContent = "-";
-                botonEliminar.className = "col-md- d-flex justify-content-center btn btn-danger"; // Agrega la clase "botonEliminar"
-                botonEliminar.onclick = function () {
-                    eliminarContacto(nuevoContacto);
-                };
-                nuevoContacto.appendChild(botonEliminar);
+                // Actualiza los IDs únicos de los elementos small para los avisos
+                nuevoContacto.querySelectorAll('small[id^="avisoCelular"]').forEach(function (small) {
+                    var currentContactNumber = small.id.match(/\d+/);
+                    var newAvisoId = "avisoCelular" + contadorContactos;
+                    small.setAttribute("id", newAvisoId);
+                    small.textContent = ""; // Limpia el contenido del aviso
+                });
 
-
+                nuevoContacto.querySelectorAll('small[id^="avisoTelefono"]').forEach(function (small) {
+                    var currentContactNumber = small.id.match(/\d+/);
+                    var newAvisoId = "avisoTelefono" + contadorContactos;
+                    small.setAttribute("id", newAvisoId);
+                    small.textContent = ""; // Limpia el contenido del aviso
+                });
 
                 // Agrega el nuevo contacto al contenedor
                 document.getElementById("contactosContainer").appendChild(nuevoContacto);
-
-                // Asociar eventos oninput con la función de validación para los nuevos campos de correo electrónico
-                nuevoContacto.querySelectorAll('input[type="email"]').forEach(function (input) {
-                    input.setAttribute("oninput", "validarCorreoElectronicoContacto(this)");
-                });
 
                 // Deshabilita el botón si se alcanza el límite de contactos
                 if (contadorContactos === 3) {
@@ -279,15 +353,19 @@
         }
 
 
-        function eliminarContacto(contacto) {
-            // Elimina el contacto del DOM
-            contacto.parentNode.removeChild(contacto);
+        function eliminarUltimoContacto() {
+            // Verifica si hay más de un contacto para eliminar
+            if (contadorContactos > 1) {
+                // Obtiene el último contacto creado y lo elimina
+                var ultimoContacto = document.querySelector("#contactosContainer .contactoContainer:last-child");
+                ultimoContacto.parentNode.removeChild(ultimoContacto);
 
-            // Disminuye el contador de contactos
-            contadorContactos--;
+                // Decrementa el contador de contactos
+                contadorContactos--;
 
-            // Habilita el botón de agregar
-            document.getElementById("btnAgregarContacto").disabled = false;
+                // Habilita el botón de agregar si se deshabilitó previamente
+                document.getElementById("btnAgregarContacto").disabled = false;
+            }
         }
 
         var contador = 1;
@@ -297,21 +375,38 @@
                 contador++;
 
                 var nuevaFila = `
-                                <tr>
-                                    <th scope="row">${contador}</th>
-                                    <td><input type="text" class="form-control text-center" placeholder="ADEUDO ${contador}" id="descripcionAdeudo${contador}" required></td>
-                                    <td><input type="number" class="form-control text-center montoInput" placeholder="MONTO ${contador}" id="adeudoMonto${contador}" onkeyup="calcularTotal()" required></td>
-                                </tr>
-                            `;
+                        <tr>
+                            <th scope="row">${contador}</th>
+                            <td><input type="text" class="form-control text-center" placeholder="ADEUDO ${contador}" id="descripcionAdeudo${contador}" required></td>
+                            <td><input type="number" class="form-control text-center montoInput" placeholder="MONTO ${contador}" id="adeudoMonto${contador}" onkeyup="calcularTotal()" required></td>
+                        </tr>
+                    `;
 
                 // Agregar la nueva fila al final de la tabla
                 $("#dataTable tbody").append(nuevaFila);
 
                 // Calcular y mostrar el total
                 calcularTotal();
+
+                // Habilitar el botón de agregar si se deshabilitó previamente
+                document.getElementById("agregarBtn").disabled = false;
             } else {
                 alert("Solo se permiten hasta 10 filas.");
                 document.getElementById("agregarBtn").disabled = true;
+            }
+        }
+
+        function eliminarUltimaFila() {
+            if (contador > 1) {
+                // Eliminar la última fila de la tabla
+                $("#dataTable tbody tr:last").remove();
+                contador--;
+
+                // Calcular y mostrar el total actualizado
+                calcularTotal();
+
+                // Habilitar el botón de agregar si se deshabilitó previamente
+                document.getElementById("agregarBtn").disabled = false;
             }
         }
 

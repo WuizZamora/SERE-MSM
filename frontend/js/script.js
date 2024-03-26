@@ -1,4 +1,3 @@
-// VALIDACION CAMPOS
 (function () {
   "use strict";
   window.addEventListener(
@@ -12,7 +11,17 @@
             if (!form.checkValidity()) {
               event.preventDefault();
               event.stopPropagation();
+              document.getElementById("error-message").classList.remove("d-none"); // Mostrar mensaje de error
             }
+            else {
+              document.getElementById("error-message").classList.add("d-none"); // Ocultar mensaje de error si el formulario es válido
+            }
+
+            // Deshabilitar/enabled el enlace "Siguiente" según la validez del formulario
+            var siguienteLink = document.querySelector('.pagination .page-item:last-child .page-link');
+            siguienteLink.href = form.checkValidity() ? '/frontend/html/Contactos.html' : '#';
+            siguienteLink.parentElement.classList.toggle('disabled', !form.checkValidity());
+
             form.classList.add("was-validated");
           },
           false
